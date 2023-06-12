@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top Looser</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="/css/navbar.css">
+  <link rel="stylesheet" href="/css/search_box.css">
+  <link rel="stylesheet" href="/css/mostBought.css">
+
+<style>
+        #navBar {
+            background-color: #73ceb7;
+            overflow: hidden;
+        }
+
+        #navBar a {
+            padding: 7px 8px;
+            text-decoration: none;
+            color: white;
+            font-weight: 700;
+        }
+
+        #navBar a:hover {
+            background-color: #ddd;
+            color: black;
+            border-radius: 10px;
+           
+        }
+
+        #navLogo {
+            width: 50px;
+            height: 50px;
+            margin-top: 5px;
+            margin-left: 7%;
+        }
+
+        #navBar {
+            display: flex;
+            
+        }
+
+        .navBarList {
+            margin-left: 35%;
+            margin-top: 15px;
+        }
+        #navBar h2 {
+      color: rgb(253, 251, 251);
+      border-radius: 10px;
+      margin: 10px;
+      margin-left: 5%;
+    }
+    </style>
+</head>
+
+<body>
+
+  <nav id="navBar">
+        <img id="navLogo" src="/images/logo2.png" alt="logo">
+        <h2>Trade Vantage</h2>
+        <div class="navBarList">
+            <a href="/api/showUserStocks/stockHome">Home</a>
+            <a href="/api/showUserStocks/showUserStocks">My Stocks</a>
+            <a href="/api/showUserStocks/stockSelect">Stocks</a>
+            <a href="/api/profileauth/transactionHistory">Transaction History</a>
+        </div>
+    </nav>
+
+  <div>
+    <h1 style="display: flex; justify-content:center; align-items:center;">Top Looser Of market</h1>
+  </div>
+  <div class="container">
+    <ul class="responsive-table">
+      <li class="table-header">
+        <div class="col col-2">Company Name</div>
+        <div class="col col-2">Current Price</div>
+        <div class="col col-3">Change</div>
+        <div class="col col-4">52W High</div>
+        <div class="col col-5">52W Low</div>
+      </li>
+
+      {{#each resultWithProfit}}
+      <a
+        href="/api/showUserStocks/productDescription?id={{this.symbol}}&identifier='{{this.identifier}}'&open={{this.open}}&dayHigh={{this.dayHigh}}&dayLow={{this.dayLow}}&lastPrice={{this.lastPrice}}&previousClose={{this.previousClose}}&change={{this.change}}&pChange={{this.pChange}}&totalTradedVolume={{this.totalTradedVolume}}&totalTradedValue={{this.totalTradedValue}}&lastUpdateTime={{this.lastUpdateTime}}&yearHigh={{this.yearHigh}}&yearLow={{this.yearLow}}&perChange365d={{this.perChange365d}}&perChange30d={{this.perChange30d}}">
+        <li class="table-row">
+          <div class="col col-2" data-label="Customer Name" style="color:#342110">{{this.symbol}} </div>
+          <div class="col col-2" data-label="Amount" style="color:#342110"> ₹{{this.lastPrice}}</div>
+          {{#if flagProfit}}
+          <div class="col col-3" data-label="Amount" style="color:Green;">{{this.change}}<br>({{this.pChange}}%)</div>
+          {{else}}
+          <div class="col col-3" data-label="Amount" style="color:red;">{{this.change}}<br>({{this.pChange}}%)</div>
+          {{/if}}
+
+          <div class="col col-4" data-label="Payment Status" style="color:#342110">₹{{this.yearHigh}}</div>
+          <div class="col col-5" data-label="Payment Status" style="color:#342110">₹{{this.yearLow}}</div>
+        </li>
+      </a>
+      {{/each}}
+    </ul>
+  </div>
+
+
+  </div>
+
+
+
+
+  <!-- -- footer - (START)-- -->
+
+  <div id="footer" style="margin-top:100px;">
+    <div class="cover1">
+      <div class="container max-w" style="padding-top: 30px;">
+
+        <div class="footer-1" id="fot-section-1">
+
+          <span style="margin:17px 0 17px -10px; cursor:pointer">
+            <img src="/images/logo2.png" width="80" height="80" alt="Logo" itemprop="logo">&nbsp;&nbsp;&nbsp;
+          </span>
+          <h2 style="display: inline; ">Grab An Experiance in Stock Market</h2>
+
+          <div class="copyRight"
+            style="display:flex; align-items:center; justify-content:space-between;  padding-bottom: 10px;"><br><br>
+            <div class="" style="display:flex; align-items:center;">ⓒ&nbsp;TradeVirtually. All rights reserved</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- footer - (END) -->
+
+
+  <script src="/scripts/productapp.js">
+  </script>
+
+  <script src="/scripts/search_box.js"></script>
+  <script src="/scripts/changeNavbar.js"></script>
+  <script>
+
+
+
+  </script>
+
+</body>
+
+</html>

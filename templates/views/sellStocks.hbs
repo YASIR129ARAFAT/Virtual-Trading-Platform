@@ -1,0 +1,344 @@
+{{!--
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Sell Stocks</title>
+    <style>
+        /* Center the form */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        /* Style the form labels */
+        label {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        /* Style the form inputs */
+        input[type="number"],
+        input[type="text"],
+        input[type="password"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 300px;
+            margin-bottom: 20px;
+        }
+
+        /* Style the form submit button */
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Style the form submit button on hover */
+        input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Sell Stocks</h1>
+    <form action="/api/sell/sellStock" method="post">
+        <label for="units">Units:</label>
+        <input type="number" id="units" name="units" required><br><br>
+
+        <label for="stockid">Stock ID:</label>
+        <input type="text" id="stockid" value="{{id}}" name="stockid" required><br><br>
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><br><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <input type="submit" value="Sell">
+    </form>
+</body>
+
+</html> --}}
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sell stocks</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/cart.css">
+    <link rel="stylesheet" href="/css/search_box.css">
+
+    <style>
+        <style>body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            color: #333;
+        }
+
+        .stock-container {
+            display: inline-block;
+            position: relative;
+            margin: 5px auto;
+
+            width: 30%;
+            background-color: #fff;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            box-shadow: 4px 6px 24px rgba(0, 0, 0, 0.1);
+        }
+
+        .stock-header {
+            background-color: #00d09c;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            border-radius:
+                10px;
+        }
+
+        .stock-units {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .stock-change {
+            font-size: 1.2rem;
+            margin-bottom:
+                0;
+        }
+
+
+        .stock-positive {
+            color: green;
+        }
+
+        .stock-negative {
+            color: red;
+        }
+
+        .insideBtn {
+            color: #f0f0f0;
+            text-decoration: none;
+            border: 2px solid #333;
+            background-color: #e9780d;
+            margin: 2px;
+            padding: 4px 4px;
+            border-radius: 5px;
+        }
+
+        .containers {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding-top: 10px;
+        }
+
+        #hel {
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 25px;
+            width: 30%;
+            box-shadow: 4px 6px 24px rgba(0, 0, 0, 0.1);
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+        /* Style the form labels */
+        label {
+            font-size: 18px;
+            margin-bottom: 2px;
+        }
+
+        /* Style the form inputs */
+        input[type="number"],
+        input[type="text"],
+        input[type="password"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 300px;
+            margin-bottom: 2px;
+        }
+
+        /* Style the form submit button */
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Style the form submit button on hover */
+        input[type="submit"]:hover {
+            background-color: #3e8e41;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #flash {
+            z-index: 1;
+            margin-bottom: 10px;
+            text-transform: capitalize;
+            color: rgb(215, 109, 201);
+            text-align: center;
+        }
+
+        #navBar {
+            background-color: #73ceb7;
+            overflow: hidden;
+        }
+
+        #navBar a {
+            padding: 7px 8px;
+            text-decoration: none;
+            color: white;
+            font-weight: 700;
+        }
+
+        #navBar a:hover {
+            background-color: #ddd;
+            color: black;
+            border-radius: 10px;
+
+        }
+
+        #navLogo {
+            width: 50px;
+            height: 50px;
+            margin-top: 5px;
+            margin-left: 7%;
+        }
+
+        #navBar {
+            display: flex;
+
+        }
+
+        .navBarList {
+            margin-left: 35%;
+            margin-top: 15px;
+        }
+
+        #navBar h2 {
+            color: rgb(251, 248, 248);
+            border-radius: 10px;
+            margin: 10px;
+            margin-left: 5%;
+        }
+    </style>
+    </style>
+</head>
+
+<body>
+
+
+    <nav id="navBar">
+        <img id="navLogo" src="/images/logo2.png" alt="logo">
+        <h2>Trade Vantage</h2>
+        <div class="navBarList">
+            <a href="/api/showUserStocks/stockHome">Home</a>
+            <a href="/api/showUserStocks/showUserStocks">My Stocks</a>
+            <a href="/api/showUserStocks/stockSelect">Stocks</a>
+            <a href="/api/profileauth/transactionHistory">Transaction History</a>
+        </div>
+    </nav>
+
+
+    <h1 id="hel">Sell Stock {{id}}</h1>
+    <h3 id="flash"> {{message}}</h3>
+    <div class="containers">
+        <form action="/api/sell/sellStock" method="post">
+            <label for="units">Units:</label>
+            <input type="number" id="units" name="units" required><br><br>
+
+            {{!-- <label for="stockid">Stock ID:</label> --}}
+            <input type="hidden" id="stockid" value="{{id}}" name="stockid" required>
+
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required><br><br>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required><br><br>
+
+            <input type="submit" value="Sell">
+        </form>
+
+    </div>
+
+    </div>
+
+    <div id="footer">
+
+        <!-- Add footer contents here -->
+        <!-- <div>file</div> -->
+
+    </div>
+
+</body>
+<script>
+    let id = document.getElementById('flash');
+    setTimeout(function () {
+        // Find the alert element and hide it
+        var alertElement = document.getElementById("flash");
+        alertElement.style.display = "none";
+        flg = 0;
+    }, 3000);
+
+</script>
+<script src="/scripts/cart.js"></script>
+<script src="/scripts/search_box.js"></script>
+<script src="/scripts/changeNavbar.js"></script>
+
+</html>

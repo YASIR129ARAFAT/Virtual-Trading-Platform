@@ -1,0 +1,92 @@
+<html>
+
+<head>
+  <title>Stock Prices</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 30px;
+      color: #333;
+    }
+
+    .stock-container {
+      display: inline-block;
+      position: relative;
+      margin: 5px auto;
+      border: 2px solid #333;
+      width: 30%;
+      background-color: #fff;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+    }
+
+    .stock-header {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      border-radius:
+        10px;
+    }
+
+    .stock-price {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .stock-change {
+      font-size: 1.2rem;
+      margin-bottom:
+        0;
+    }
+
+    .stock-positive {
+      color: green;
+    }
+
+    .stock-negative {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Loading...</h1>
+    <div class="containers">
+      <div class="stock-container" id="par">
+        <div class="stock-header"></div>
+        <div class="stock-price">Price: 132.05</div>
+        <div class="stock-change stock-positive">Change Percentage: +0.23%</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    load_data(); var post_data = document.getElementById('par') function
+      load_data() {
+        const request = new XMLHttpRequest(); request.open('Get',
+          '/get_data'); request.onload = () => {
+            const
+            results = JSON.parse(request.responseText);
+            console.log(results);
+            let ele = document.getElementsByClassName('container')[0];
+            ele.children[0].innerHTML = results.Information;
+          }; request.send()
+    }
+
+  </script>
+  <script src="/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Stock Prices</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            color: #333;
+        }
+
+        .stock-container {
+            display: inline-block;
+            position: relative;
+            margin: 5px auto;
+            border: 2px solid #333;
+            width: 30%;
+            background-color: #fff;
+            padding-top: 0px;
+            padding-bottom: 10px;
+            padding-left: 5px;
+            padding-right: 5px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+            
+        }
+
+        .stock-header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            padding-top: 0px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+
+        .stock-price {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .stock-change {
+            font-size: 1.2rem;
+            margin-bottom: 0;
+        }
+
+        .stock-positive {
+            color: green;
+        }
+
+        .stock-negative {
+            color: red;
+        }
+
+        .insideBtn {
+            color: #f0f0f0;
+            text-decoration: none;
+            border: 2px solid #333;
+            background-color: #e9780d;
+            margin: 2px;
+            padding: 4px 4px;
+            border-radius: 5px;
+        }
+
+        .container {
+            margin: 0px auto;
+            justify-self: center;
+            align-items: center;
+
+        }
+
+        .containers {
+            margin-left: 5%;
+        }
+
+        #a {
+            color: #f0f0f0;
+            background-color: #e9780d;
+            text-align: center;
+            border-radius: 9px;
+            margin-top: 0px;
+            margin-bottom: 7px;
+            margin-left: -5px;
+            margin-right: -5px;
+            height: 31px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+            <h1>Stocks</h1>
+        </div>
+        {{#if message}}
+        <p id="message" style="color:green; text-align:center;">{{message}}</p>
+        {{/if}}
+        <div class="containers">
+            {{#each sortedData}}
+            <div class="stock-container" id="par">
+                {{!-- <div class="stock-price">Symbol: {{this.symbol}}</div> --}}
+                <div class="stock-price" id="a">{{this.identifier}}</div>
+                <div class="stock-price">Open: &#x20B9 {{this.open}}</div>
+                <div class="stock-price">Day High: &#x20B9 {{this.dayHigh}}</div>
+                <div class="stock-price">Day Low: &#x20B9 {{this.dayLow}}</div>
+                <div class="stock-price">Last Price: &#x20B9 {{this.lastPrice}}</div>
+                <div class="stock-price">Previous Close: &#x20B9 {{this.previousClose}}</div>
+                <div class="stock-price">Change: &#x20B9 {{this.change}}</div>
+                <div class="stock-price">Change Percentage: {{this.pChange}}%</div>
+                {{!-- <div class="stock-price">Total Traded Volume: {{this.totalTradedVolume}}</div> --}}
+                {{!-- <div class="stock-price">Total Traded Value: {{this.totalTradedValue}}</div> --}}
+                {{!-- <div class="stock-price">Last Update Time: {{this.lastUpdateTime}}</div> --}}
+                <div class="stock-price">Year High: &#x20B9 {{this.yearHigh}}</div>
+                <div class="stock-price">Year Low: &#x20B9 {{this.yearLow}}</div>
+                <div class="stock-price">Change in last 365 days: {{this.perChange365d}}%</div>
+                <div class="stock-price">Change in last 30 days: {{this.perChange30d}}%</div>
+                <a class="insideBtn" href="/buy?id={{this.symbol}}">Buy</a>
+                <a class="insideBtn" href="">History</a>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <script>
+        var message = document.getElementById('message');
+        setTimeout(() => {
+            message.innerHTML = "";
+        }, 3000)
+    </script>
+</body>
+
+</html>

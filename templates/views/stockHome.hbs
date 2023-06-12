@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Page</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="/css/home.css">
+  <link rel="stylesheet" href="/css/search_box.css">
+  <link rel="stylesheet" href="/css/navbar2.css">
+  <style>
+    .bought {
+      height: 350px;
+      width: 100%;
+
+      display: flex;
+
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 4px 6px 24px rgba(255, 255, 255, 0.1);
+
+    }
+
+    .heading {
+      height: 50px;
+      width: 100%;
+
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    a {
+      background: #E4E9F7;
+      ;
+    }
+
+
+    .mains {
+      height: 250px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+
+    .containers1 {
+      background-color: rgb(255, 255, 255);
+      height: 150px;
+      width: 200px;
+      margin-left: 40px;
+      border-radius: 10px;
+      padding-left: 10px;
+      padding-top: 10px;
+
+      box-shadow: 3px 6px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .bgm {
+      float: right;
+      margin-right: 10%;
+
+    }
+
+    .bgm:hover {
+      cursor: pointer;
+    }
+
+    .imagestock {
+      height: 50px;
+      width: 50px;
+    }
+
+    p {
+      margin-top: 10px;
+      font-weight: bolder;
+      color: #413f3f;
+      ;
+
+    }
+
+    .reviews {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+    }
+
+    .review {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+      border: 1px solid #ccc;
+      padding: 20px;
+      width: 600px;
+      max-width: 100%;
+    }
+
+    .user-avatar {
+      width: 70px;
+      height: 70px;
+      margin-right:
+        20px;
+    }
+
+    .user-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .user-name {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .user-email {
+      font-size: 14px;
+      color: #999;
+      margin-bottom: 10px;
+    }
+
+    .review-comment {
+      font-size: 16px;
+      line-height:
+        1.5;
+      margin-bottom: 10px;
+    }
+
+    .review-date {
+      font-size: 14px;
+      color: #999;
+      margin-bottom: 10px;
+    }
+
+    .review-stars {
+      font-size: 20px;
+      color: #f1c40f;
+      margin-left: auto;
+    }
+
+    .review-stars i {
+      margin-right: 5px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    #navBar {
+      background-color: transparent;
+      overflow: hidden;
+    }
+
+    #navBar a {
+      padding: 7px 8px;
+      margin: 0px 10px;
+      text-decoration: none;
+      color: rgb(39, 37, 37);
+      font-weight: 700;
+    }
+
+
+    #navBar h2 {
+      color: black;
+      border-radius: 10px;
+      margin: 10px;
+      margin-left: 5%;
+    }
+
+    #navLogo {
+      width: 50px;
+      height: 50px;
+      margin-top: 5px;
+      margin-left: 8%;
+    }
+
+    #navBar {
+      display: flex;
+    }
+
+    .navBarList {
+      margin-left: 55%;
+      margin-top: 15px;
+    }
+  </style>
+
+
+  <style>
+    /* Google Font Link */
+  </style>
+</head>
+
+<body>
+
+  <!-- ----------- navbar (Start) ----------- -->
+
+
+
+  <div class="sidebar">
+    <div class="logo-details">
+      {{!-- <i class='bx bxl-c-plus-plus icon'></i> --}}
+      <div class="logo_name">Dashboard</div>
+      <i class='bx bx-menu' id="btn"></i>
+    </div>
+    <ul class="nav-list">
+      {{!-- <li>
+        <i class='bx bx-search'></i>
+        <input type="text" placeholder="Search...">
+        <span class="tooltip">Search</span>
+      </li> --}}
+      <li>
+        <a href="/api/showUserStocks/stockHome">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">Home</span>
+        </a>
+        <span class="tooltip">Home</span>
+      </li>
+      <li>
+        <a href="/api/profileauth/autoBuyView">
+          <i class='bx bx-pie-chart-alt-2'></i>
+          <span class="links_name">Auto Buy</span>
+        </a>
+        <span class="tooltip">Auto Buy</span>
+      </li>
+      {{!-- <li>
+        <a href="#">
+          <i class='bx bx-chat'></i>
+          <span class="links_name">Messages</span>
+        </a>
+        <span class="tooltip">Messages</span>
+      </li> --}}
+      <li>
+        <a href="/api/profileauth/transactionHistory">
+          <i class='bx bx-pie-chart-alt-2'></i>
+          <span class="links_name">Transaction History</span>
+        </a>
+        <span class="tooltip">Transaction History</span>
+      </li>
+      <li>
+        <a href="/api/profileauth/autoSellView">
+          <i class='bx bx-pie-chart-alt-2'></i>
+          <span class="links_name">Auto Sell</span>
+        </a>
+        <span class="tooltip">Auto Sell</span>
+      </li>
+      {{!-- <li>
+        <a href="#">
+          <i class='bx bx-cart-alt'></i>
+          <span class="links_name">Order</span>
+        </a>
+        <span class="tooltip">Order</span>
+      </li> --}}
+      <li>
+        <a href="/api/showUserStocks/wishlist">
+          <i class='bx bx-heart'></i>
+          <span class="links_name">Wishlist</span>
+        </a>
+        <span class="tooltip">Wishlist</span>
+      </li>
+      {{!-- <li>
+        <a href="#">
+          <i class='bx bx-cog'></i>
+          <span class="links_name">Setting</span>
+        </a>
+        <span class="tooltip">Setting</span>
+      </li> --}}
+      <li class="profile">
+        <a href="#">
+          <i class='bx bx-log-out' id="log_out"></i>
+          <span class="links_name">Log out</span>
+        </a>
+        <span class="tooltip">Log out</span>
+      </li>
+    </ul>
+  </div>
+
+
+
+  <nav id="navBar">
+    <img id="navLogo" src="/images/logo2.png" alt="logo">
+    <h2>Trade Vantage</h2>
+
+  </nav>
+
+  {{!-- <section class="home-section">
+    <div class="text">Dashboard</div>
+  </section> --}}
+
+  <!-- ----------- navbar (End) ----------- -->
+  <div id="logOutDropDown" class="noDropDownDisplay">
+    <div class="logout">Log Out</div>
+  </div>
+  <div id="dropDown" class="noDropDownDisplay"></div>
+
+
+  <div id="cont1" class="max-w" style="margin-top: 30px;">
+    <div id="first">
+
+      <div class="content">
+        <div class="body-1">
+          <h1>Invest in</h1>
+          <div class="slides">
+            <div class="slide slide1"><span>&nbsp&nbspStocks</span></div>
+            <div class="slide slide2"><span>&nbsp&nbspStocks</span></div>
+            <div class="slide slide3"><span>&nbsp&nbspStocks</span></div>
+            <div class="slide slide4"><span>&nbsp&nbspStocks</span></div>
+            <div class="slide slide5"><span>&nbsp&nbspStocks</span></div>
+            <div class="slide slide6" area-hidden="true"><span>&nbsp&nbspStocks</span></div>
+          </div>
+        </div>
+        <div id="mid-text">
+          <p>Trusted by <strong>Millions</strong> of Indians. Start investing </br> today. </p>
+        </div>
+        {{!-- <div id="get-btn">
+          <button>Get Started</button>
+        </div> --}}
+      </div>
+
+
+    </div>
+
+    <!-- ------------ grid - type catogories ---------- -->
+
+    <div id="second">
+
+      <div id="cont">
+
+        <div> <a href="/api/showUserStocks/showUserStocks"> <img
+              src="https://assets-netstorage.groww.in/web-assets/billion_groww_desktop/prod/build/client/images/mfHome.af668dea.svg"
+              alt="">
+            <div class="cont-text">My Stocks</div>
+          </a> </div>
+        <div> <a href="/api/showUserStocks/stockSelect"> <img
+              src="https://assets-netstorage.groww.in/web-assets/billion_groww_desktop/prod/build/client/images/stockHome.af2af225.svg"
+              alt="">
+            <div class="cont-text">All Stocks</div>
+          </a> </div>
+        <div> <a href="/api/showUserStocks/wishlist"> <img height="50" width="50" src="/images/wishlist.png" alt="">
+            <div class="cont-text">MyWishList</div>
+          </a> </div>
+        <div> <a href="/api/showUserStocks/allUserReview"> <img height="50" width="50" src="/images/good-review.png"
+              alt="">
+            <div class="cont-text">Review</div>
+          </a> </div>
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+
+
+
+
+  <div class="bought">
+    <div class="heading">
+      <h1>Trending In Market</h1>
+      <a class="bgm" href="/api/showUserStocks/mostBought">See all</a>
+    </div>
+    <div class="mains">
+      <a href="/api/showUserStocks/productDescription?id={{sortedData.[0].symbol}}">
+        <div class="containers1">
+          <img class="imagestock" src="/images/in_stock.png" alt="logo">
+          <p>{{sortedData.[0].symbol}}</p>
+          <p>Price: ₹{{sortedData.[0].lastPrice}}</p>
+
+
+        </div>
+
+      </a>
+      <a href="/api/showUserStocks/productDescription?id={{sortedData.[0].symbol}}">
+        <div class="containers1">
+          <img class="imagestock" src="/images/in_stock.png" alt="logo">
+          <p>{{sortedData.[1].symbol}}</p>
+          <p>Price: ₹{{sortedData.[1].lastPrice}}</p>
+        </div>
+
+      </a>
+
+      <a href="/api/showUserStocks/productDescription?id={{sortedData.[0].symbol}}">
+
+        <div class="containers1">
+          <img class="imagestock" src="/images/in_stock.png" alt="logo">
+          <p>{{sortedData.[2].symbol}}</p>
+          <p>Price: ₹{{sortedData.[2].lastPrice}}</p>
+        </div>
+      </a>
+
+      <a href="/api/showUserStocks/productDescription?id={{sortedData.[0].symbol}}">
+
+        <div class="containers1">
+          <img class="imagestock" src="/images/in_stock.png" alt="logo">
+          <p>{{sortedData.[3].symbol}}</p>
+          <p>Price: ₹{{sortedData.[3].lastPrice}}</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+
+  <div class="bought">
+    <div class="heading">
+      <h1>Top Gainers</h1>
+      <a class="bgm" href="/api/showUserStocks/topGainers">See all</a>
+    </div>
+    <div class="mains">
+      <a href="/api/showUserStocks/productDescription?id={{sortedData.[0].symbol}}">
+        <div class="containers1">
+          <img class="imagestock" src="/images/financial-profit.png" alt="">
+          <p>{{sortedData.[0].symbol}}</p>
+          <p>Price: ₹{{sortedData.[0].lastPrice}}</p>
+
+
+        </div>
+
+      </a>
+      <a href="/api/showUserStocks/productDescription?id={{sortedData.[0].symbol}}">
+        <div class="containers1">
+          <img class="imagestock" src="/images/financial-profit.png" alt="">
+          <p>{{sortedData.[1].symbol}}</p>
+          <p>Price: ₹{{sortedData.[1].lastPrice}}</p>
+        </div>
+
+      </a>
+
+      <a href="/api/showUserStocks/productDescription?id={{sortedData.[0].symbol}}">
+
+        <div class="containers1">
+          <img class="imagestock" src="/images/financial-profit.png" alt="">
+          <p>{{sortedData.[2].symbol}}</p>
+          <p>Price: ₹{{sortedData.[2].lastPrice}}</p>
+        </div>
+      </a>
+
+      <a href="/api/showUserStocks/productDescription?id={{sortedData.[0].symbol}}">
+
+        <div class="containers1">
+          <img class="imagestock" src="/images/financial-profit.png" alt="">
+          <p>{{sortedData.[3].symbol}}</p>
+          <p>Price: ₹{{sortedData.[3].lastPrice}}</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="bought">
+    <div class="heading">
+      <h1>Top Losers</h1>
+      <a class="bgm" href="/api/showUserStocks/topLosers">See all</a>
+    </div>
+    <div class="mains">
+      <a href="/api/showUserStocks/productDescription?id={{sortedData.[0].symbol}}">
+        <div class="containers1">
+          <img class="imagestock" src="/images/financial-profit.png" alt="">
+          <p>{{sortedData.[0].symbol}}</p>
+          <p>₹ {{sortedData.[0].lastPrice}}</p>
+
+
+        </div>
+
+      </a>
+      <a href="/api/showUserStocks/productDescription?id={{sortedData.[0].symbol}}">
+        <div class="containers1">
+          <img class="imagestock" src="/images/financial-profit.png" alt="">
+          <p>{{sortedData.[1].symbol}}</p>
+          <p>Price: ₹{{sortedData.[1].lastPrice}}</p>
+        </div>
+
+      </a>
+
+      <a href="/api/showUserStocks/productDescription?id={{sortedData.[0].symbol}}">
+
+        <div class="containers1">
+          <img class="imagestock" src="/images/financial-profit.png" alt="">
+          <p>{{sortedData.[2].symbol}}</p>
+          <p>Price: ₹{{sortedData.[2].lastPrice}}</p>
+        </div>
+      </a>
+
+      <a href="/api/showUserStocks/productDescription?id={{sortedData.[0].symbol}}">
+
+        <div class="containers1">
+          <img class="imagestock" src="/images/financial-profit.png" alt="">
+          <p>{{sortedData.[3].symbol}}</p>
+          <p>Price: ₹{{sortedData.[3].lastPrice}}</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+
+
+
+  <div id="section-three" class="max-w">
+    <div id="section-three-heading" class="max-w">
+      Keep learning. Keep growing.
+    </div>
+
+    <div id="section-three-img" class="max-w">
+
+      <a href="#"> <img class=""
+          src="https://assets-netstorage.groww.in/web-assets/billion_groww_desktop/prod/build/client/images/blog1.d3a78143.png"
+          width="350" height="275" alt="blog img">
+        <div>
+          <p>How to Select/Pick Stocks for Intraday </p>
+        </div>
+      </a>
+
+
+      <a href="#"> <img class=""
+          src="https://assets-netstorage.groww.in/web-assets/billion_groww_desktop/prod/build/client/images/blog2.2eea33cc.png"
+          width="350" height="275" alt="blog img">
+        <div>
+          <p>Beginners Guide to Mutual Funds </p>
+        </div>
+      </a>
+
+
+      <a href="#"> <img class=""
+          src="https://assets-netstorage.groww.in/web-assets/billion_groww_desktop/prod/build/client/images/blog3.5bbd4db3.png"
+          width="350" height="275" alt="blog img">
+        <div>
+          <p>How to Diversify in the Time of Market Volatility</p>
+        </div>
+      </a>
+
+    </div>
+
+  </div>
+
+  {{!-- <div style="margin-top: 60px;" class="view-more">
+    <a href="#"> <span> View all articles </span> <span> &#8594; </span> </a>
+  </div> --}}
+
+  {{!-- <section id="press-section" class="max-w">
+    <div style="display:flex; align-items: center; width:100%">
+      <div class="border-line right"></div>
+      <span id="heading">
+        In The Press
+      </span>
+      <div class="border-line left"></div>
+    </div>
+
+    <!-- -------- -->
+
+    <div class="press-name" style="display:flex; align-items:center; justify-content: space-between; margin-top: 30px;">
+      <a href="https://groww.in/p/press/" target="_blank">
+        <div><img
+            src="https://assets-netstorage.groww.in/web-assets/billion_groww_desktop/prod/build/client/images/ys.9166bd37.svg"
+            width="166" height="88" alt="ys"></div>
+      </a><a href="https://groww.in/p/press/" target="_blank">
+        <div><img
+            src="https://assets-netstorage.groww.in/web-assets/billion_groww_desktop/prod/build/client/images/live.7edf8d7a.svg"
+            width="166" height="88" alt="live"></div>
+      </a><a href="https://groww.in/p/press/" target="_blank">
+        <div><img
+            src="https://assets-netstorage.groww.in/web-assets/billion_groww_desktop/prod/build/client/images/business.dc402a84.svg"
+            width="166" height="88" alt="business"></div>
+      </a><a href="https://groww.in/p/press/" target="_blank">
+        <div><img
+            src="https://assets-netstorage.groww.in/web-assets/billion_groww_desktop/prod/build/client/images/enter.09e9d78c.svg"
+            width="166" height="88" alt="ent"></div>
+      </a>
+    </div>
+  </section> --}}
+
+  {{!-- <section id="testonomials" style="margin-top:30px; margin-bottom:30px;">
+
+    <div class="max-w">
+      <div>
+        <div class="heading">Creating proud investors.</div>
+
+        <div style="display:flex; align-items:center; justify-content: space-between;" class="view-more">
+          <div id="para">You can feel the pride of being a Groww investor in their words.</div>
+          <a href="/api/showUserStocks/allUserReview"> <span> View More</span> <span> &#8594; </span> </a>
+        </div>
+
+        <!-- -- card -- -->
+
+        <div class="reviews">
+          <div>
+
+
+            <!-- -- card -- -->
+
+            <div id="card-div"
+              style="display:flex; align-items:center; justify-content: space-between; margin-top: 40px; width:100%">
+              {{#each result}}
+
+              <a href="#">
+                <div class="card">
+
+                  <div class="profile-img display-flx">
+
+                    <div><img class="UserImg"
+                        src="https://assets-netstorage.groww.in/web-assets/billion_groww_desktop/prod/build/client/images/ankitImg.863e0afa.png"
+                        width="56" height="56" alt="Ankit" /></div>
+
+                    <div></div>
+                  </div>
+
+                  <div class="say">{{this.comment}}</div>
+                  <div class="name">{{this.username}}</div>
+                  <div class="company">Product Specialist, Google</div>
+
+                </div>
+              </a>
+
+              {{/each}}
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section> --}}
+
+
+
+  <!-- -- footer - (START)-- -->
+
+  <div id="footer" style="margin-top:100px;">
+
+    <div class="cover1">
+      <div class="container max-w" style="padding-top: 30px;">
+
+        <div class="footer-1" id="fot-section-1">
+          <ul>
+            <li style="margin:17px 0 17px -10px; cursor:pointer"><img src="/images/logo2.png" width="80" height="80"
+                alt="Groww Logo" itemprop="logo"> </li>
+
+          </ul>
+          <div class="copyRight"
+            style="display:flex; align-items:center; justify-content:space-between;  padding-bottom: 10px;">
+            <div class="" style="display:flex; align-items:center;">ⓒ&nbsp;TradeVirtually. All rights reserved</div>
+          </div>
+        </div>
+
+
+      </div>
+
+      {{!-- <section class="max-w">
+        <!-- -- underline-- -->
+
+        <div class="footerLine"></div>
+
+        <!-- -- copyright-section -- -->
+
+        <div class="copyRight"
+          style="display:flex; align-items:center; justify-content:space-between;  padding-bottom: 10px;">
+          <div class="" style="display:flex; align-items:center;">ⓒ&nbsp;TradeVirtually. All rights reserved</div>
+        </div>
+      </section> --}}
+
+    </div>
+
+  </div>
+
+  <!-- -- footer - (END)-- -->
+
+
+
+  <!-- -- image hover animation -- JS - Part -- -->
+
+  <!-- ------   == (web) VanillaTilt JS ==  ------ -->
+
+
+
+
+
+  <script>
+
+
+    // <script type="text/javascript" src="./scripts/Vanilla-tilt.js">
+
+
+    var VanillaTilt = (function () {
+      'use strict';
+
+      class VanillaTilt {
+        constructor(element, settings = {}) {
+          if (!(element instanceof Node)) {
+            throw ("Can't initialize VanillaTilt because " + element + " is not a Node.");
+          }
+
+          this.width = null;
+          this.height = null;
+          this.clientWidth = null;
+          this.clientHeight = null;
+          this.left = null;
+          this.top = null;
+
+          // for Gyroscope sampling
+          this.gammazero = null;
+          this.betazero = null;
+          this.lastgammazero = null;
+          this.lastbetazero = null;
+
+          this.transitionTimeout = null;
+          this.updateCall = null;
+          this.event = null;
+
+          this.updateBind = this.update.bind(this);
+          this.resetBind = this.reset.bind(this);
+
+          this.element = element;
+          this.settings = this.extendSettings(settings);
+
+          this.reverse = this.settings.reverse ? -1 : 1;
+          this.glare = VanillaTilt.isSettingTrue(this.settings.glare);
+          this.glarePrerender = VanillaTilt.isSettingTrue(this.settings["glare-prerender"]);
+          this.fullPageListening = VanillaTilt.isSettingTrue(this.settings["full-page-listening"]);
+          this.gyroscope = VanillaTilt.isSettingTrue(this.settings.gyroscope);
+          this.gyroscopeSamples = this.settings.gyroscopeSamples;
+
+          this.elementListener = this.getElementListener();
+
+          if (this.glare) {
+            this.prepareGlare();
+          }
+
+          if (this.fullPageListening) {
+            this.updateClientSize();
+          }
+
+          this.addEventListeners();
+          this.reset();
+          this.updateInitialPosition();
+        }
+
+        static isSettingTrue(setting) {
+          return setting === "" || setting === true || setting === 1;
+        }
+
+        /**
+         * Method returns element what will be listen mouse events
+         * @return {Node}
+         */
+        getElementListener() {
+          if (this.fullPageListening) {
+            return window.document;
+          }
+
+          if (typeof this.settings["mouse-event-element"] === "string") {
+            const mouseEventElement = document.querySelector(this.settings["mouse-event-element"]);
+
+            if (mouseEventElement) {
+              return mouseEventElement;
+            }
+          }
+
+          if (this.settings["mouse-event-element"] instanceof Node) {
+            return this.settings["mouse-event-element"];
+          }
+
+          return this.element;
+        }
+
+        /**
+         * Method set listen methods for this.elementListener
+         * @return {Node}
+         */
+        addEventListeners() {
+          this.onMouseEnterBind = this.onMouseEnter.bind(this);
+          this.onMouseMoveBind = this.onMouseMove.bind(this);
+          this.onMouseLeaveBind = this.onMouseLeave.bind(this);
+          this.onWindowResizeBind = this.onWindowResize.bind(this);
+          this.onDeviceOrientationBind = this.onDeviceOrientation.bind(this);
+
+          this.elementListener.addEventListener("mouseenter", this.onMouseEnterBind);
+          this.elementListener.addEventListener("mouseleave", this.onMouseLeaveBind);
+          this.elementListener.addEventListener("mousemove", this.onMouseMoveBind);
+
+          if (this.glare || this.fullPageListening) {
+            window.addEventListener("resize", this.onWindowResizeBind);
+          }
+
+          if (this.gyroscope) {
+            window.addEventListener("deviceorientation", this.onDeviceOrientationBind);
+          }
+        }
+
+        /**
+         * Method remove event listeners from current this.elementListener
+         */
+        removeEventListeners() {
+          this.elementListener.removeEventListener("mouseenter", this.onMouseEnterBind);
+          this.elementListener.removeEventListener("mouseleave", this.onMouseLeaveBind);
+          this.elementListener.removeEventListener("mousemove", this.onMouseMoveBind);
+
+          if (this.gyroscope) {
+            window.removeEventListener("deviceorientation", this.onDeviceOrientationBind);
+          }
+
+          if (this.glare || this.fullPageListening) {
+            window.removeEventListener("resize", this.onWindowResizeBind);
+          }
+        }
+
+        destroy() {
+          clearTimeout(this.transitionTimeout);
+          if (this.updateCall !== null) {
+            cancelAnimationFrame(this.updateCall);
+          }
+
+          this.reset();
+
+          this.removeEventListeners();
+          this.element.vanillaTilt = null;
+          delete this.element.vanillaTilt;
+
+          this.element = null;
+        }
+
+        onDeviceOrientation(event) {
+          if (event.gamma === null || event.beta === null) {
+            return;
+          }
+
+          this.updateElementPosition();
+
+          if (this.gyroscopeSamples > 0) {
+            this.lastgammazero = this.gammazero;
+            this.lastbetazero = this.betazero;
+
+            if (this.gammazero === null) {
+              this.gammazero = event.gamma;
+              this.betazero = event.beta;
+            } else {
+              this.gammazero = (event.gamma + this.lastgammazero) / 2;
+              this.betazero = (event.beta + this.lastbetazero) / 2;
+            }
+
+            this.gyroscopeSamples -= 1;
+          }
+
+          const totalAngleX = this.settings.gyroscopeMaxAngleX - this.settings.gyroscopeMinAngleX;
+          const totalAngleY = this.settings.gyroscopeMaxAngleY - this.settings.gyroscopeMinAngleY;
+
+          const degreesPerPixelX = totalAngleX / this.width;
+          const degreesPerPixelY = totalAngleY / this.height;
+
+          const angleX = event.gamma - (this.settings.gyroscopeMinAngleX + this.gammazero);
+          const angleY = event.beta - (this.settings.gyroscopeMinAngleY + this.betazero);
+
+          const posX = angleX / degreesPerPixelX;
+          const posY = angleY / degreesPerPixelY;
+
+          if (this.updateCall !== null) {
+            cancelAnimationFrame(this.updateCall);
+          }
+
+          this.event = {
+            clientX: posX + this.left,
+            clientY: posY + this.top,
+          };
+
+          this.updateCall = requestAnimationFrame(this.updateBind);
+        }
+
+        onMouseEnter() {
+          this.updateElementPosition();
+          this.element.style.willChange = "transform";
+          this.setTransition();
+        }
+
+        onMouseMove(event) {
+          if (this.updateCall !== null) {
+            cancelAnimationFrame(this.updateCall);
+          }
+
+          this.event = event;
+          this.updateCall = requestAnimationFrame(this.updateBind);
+        }
+
+        onMouseLeave() {
+          this.setTransition();
+
+          if (this.settings.reset) {
+            requestAnimationFrame(this.resetBind);
+          }
+        }
+
+        reset() {
+          this.event = {
+            clientX: this.left + this.width / 2,
+            clientY: this.top + this.height / 2
+          };
+
+          if (this.element && this.element.style) {
+            this.element.style.transform = `perspective(${this.settings.perspective}px) ` +
+              `rotateX(0deg) ` +
+              `rotateY(0deg) ` +
+              `scale3d(1, 1, 1)`;
+          }
+
+          this.resetGlare();
+        }
+
+        resetGlare() {
+          if (this.glare) {
+            this.glareElement.style.transform = "rotate(180deg) translate(-50%, -50%)";
+            this.glareElement.style.opacity = "0";
+          }
+        }
+
+        updateInitialPosition() {
+          if (this.settings.startX === 0 && this.settings.startY === 0) {
+            return;
+          }
+
+          this.onMouseEnter();
+
+          if (this.fullPageListening) {
+            this.event = {
+              clientX: (this.settings.startX + this.settings.max) / (2 * this.settings.max) * this.clientWidth,
+              clientY: (this.settings.startY + this.settings.max) / (2 * this.settings.max) * this.clientHeight
+            };
+          } else {
+            this.event = {
+              clientX: this.left + ((this.settings.startX + this.settings.max) / (2 * this.settings.max) * this.width),
+              clientY: this.top + ((this.settings.startY + this.settings.max) / (2 * this.settings.max) * this.height)
+            };
+          }
+
+
+          let backupScale = this.settings.scale;
+          this.settings.scale = 1;
+          this.update();
+          this.settings.scale = backupScale;
+          this.resetGlare();
+        }
+
+        getValues() {
+          let x, y;
+
+          if (this.fullPageListening) {
+            x = this.event.clientX / this.clientWidth;
+            y = this.event.clientY / this.clientHeight;
+          } else {
+            x = (this.event.clientX - this.left) / this.width;
+            y = (this.event.clientY - this.top) / this.height;
+          }
+
+          x = Math.min(Math.max(x, 0), 1);
+          y = Math.min(Math.max(y, 0), 1);
+
+          let tiltX = (this.reverse * (this.settings.max - x * this.settings.max * 2)).toFixed(2);
+          let tiltY = (this.reverse * (y * this.settings.max * 2 - this.settings.max)).toFixed(2);
+          let angle = Math.atan2(this.event.clientX - (this.left + this.width / 2), -(this.event.clientY - (this.top + this.height / 2))) * (180 / Math.PI);
+
+          return {
+            tiltX: tiltX,
+            tiltY: tiltY,
+            percentageX: x * 100,
+            percentageY: y * 100,
+            angle: angle
+          };
+        }
+
+        updateElementPosition() {
+          let rect = this.element.getBoundingClientRect();
+
+          this.width = this.element.offsetWidth;
+          this.height = this.element.offsetHeight;
+          this.left = rect.left;
+          this.top = rect.top;
+        }
+
+        update() {
+          let values = this.getValues();
+
+          this.element.style.transform = "perspective(" + this.settings.perspective + "px) " +
+            "rotateX(" + (this.settings.axis === "x" ? 0 : values.tiltY) + "deg) " +
+            "rotateY(" + (this.settings.axis === "y" ? 0 : values.tiltX) + "deg) " +
+            "scale3d(" + this.settings.scale + ", " + this.settings.scale + ", " + this.settings.scale + ")";
+
+          if (this.glare) {
+            this.glareElement.style.transform = `rotate(${values.angle}deg) translate(-50%, -50%)`;
+            this.glareElement.style.opacity = `${values.percentageY * this.settings["max-glare"] / 100}`;
+          }
+
+          this.element.dispatchEvent(new CustomEvent("tiltChange", {
+            "detail": values
+          }));
+
+          this.updateCall = null;
+        }
+
+        /**
+         * Appends the glare element (if glarePrerender equals false)
+         * and sets the default style
+         */
+        prepareGlare() {
+          // If option pre-render is enabled we assume all html/css is present for an optimal glare effect.
+          if (!this.glarePrerender) {
+            // Create glare element
+            const jsTiltGlare = document.createElement("div");
+            jsTiltGlare.classList.add("js-tilt-glare");
+
+            const jsTiltGlareInner = document.createElement("div");
+            jsTiltGlareInner.classList.add("js-tilt-glare-inner");
+
+            jsTiltGlare.appendChild(jsTiltGlareInner);
+            this.element.appendChild(jsTiltGlare);
+          }
+
+          this.glareElementWrapper = this.element.querySelector(".js-tilt-glare");
+          this.glareElement = this.element.querySelector(".js-tilt-glare-inner");
+
+          if (this.glarePrerender) {
+            return;
+          }
+
+          Object.assign(this.glareElementWrapper.style, {
+            "position": "absolute",
+            "top": "0",
+            "left": "0",
+            "width": "100%",
+            "height": "100%",
+            "overflow": "hidden",
+            "pointer-events": "none"
+          });
+
+          Object.assign(this.glareElement.style, {
+            "position": "absolute",
+            "top": "50%",
+            "left": "50%",
+            "pointer-events": "none",
+            "background-image": `linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%)`,
+            "transform": "rotate(180deg) translate(-50%, -50%)",
+            "transform-origin": "0% 0%",
+            "opacity": "0",
+          });
+
+          this.updateGlareSize();
+        }
+
+        updateGlareSize() {
+          if (this.glare) {
+            const glareSize = (this.element.offsetWidth > this.element.offsetHeight ? this.element.offsetWidth : this.element.offsetHeight) * 2;
+
+            Object.assign(this.glareElement.style, {
+              "width": `${glareSize}px`,
+              "height": `${glareSize}px`,
+            });
+          }
+        }
+
+        updateClientSize() {
+          this.clientWidth = window.innerWidth
+            || document.documentElement.clientWidth
+            || document.body.clientWidth;
+
+          this.clientHeight = window.innerHeight
+            || document.documentElement.clientHeight
+            || document.body.clientHeight;
+        }
+
+        onWindowResize() {
+          this.updateGlareSize();
+          this.updateClientSize();
+        }
+
+        setTransition() {
+          clearTimeout(this.transitionTimeout);
+          this.element.style.transition = this.settings.speed + "ms " + this.settings.easing;
+          if (this.glare) this.glareElement.style.transition = `opacity ${this.settings.speed}ms ${this.settings.easing}`;
+
+          this.transitionTimeout = setTimeout(() => {
+            this.element.style.transition = "";
+            if (this.glare) {
+              this.glareElement.style.transition = "";
+            }
+          }, this.settings.speed);
+
+        }
+
+        /**
+         * Method return patched settings of instance
+         * @param {boolean} settings.reverse - reverse the tilt direction
+         * @param {number} settings.max - max tilt rotation (degrees)
+         * @param {startX} settings.startX - the starting tilt on the X axis, in degrees. Default: 0
+         * @param {startY} settings.startY - the starting tilt on the Y axis, in degrees. Default: 0
+         * @param {number} settings.perspective - Transform perspective, the lower the more extreme the tilt gets
+         * @param {string} settings.easing - Easing on enter/exit
+         * @param {number} settings.scale - 2 = 200%, 1.5 = 150%, etc..
+         * @param {number} settings.speed - Speed of the enter/exit transition
+         * @param {boolean} settings.transition - Set a transition on enter/exit
+         * @param {string|null} settings.axis - What axis should be disabled. Can be X or Y
+         * @param {boolean} settings.glare - What axis should be disabled. Can be X or Y
+         * @param {number} settings.max-glare - the maximum "glare" opacity (1 = 100%, 0.5 = 50%)
+         * @param {boolean} settings.glare-prerender - false = VanillaTilt creates the glare elements for you, otherwise
+         * @param {boolean} settings.full-page-listening - If true, parallax effect will listen to mouse move events on the whole document, not only the selected element
+         * @param {string|object} settings.mouse-event-element - String selector or link to HTML-element what will be listen mouse events
+         * @param {boolean} settings.reset - false = If the tilt effect has to be reset on exit
+         * @param {gyroscope} settings.gyroscope - Enable tilting by deviceorientation events
+         * @param {gyroscopeSensitivity} settings.gyroscopeSensitivity - Between 0 and 1 - The angle at which max tilt position is reached. 1 = 90deg, 0.5 = 45deg, etc..
+         * @param {gyroscopeSamples} settings.gyroscopeSamples - How many gyroscope moves to decide the starting position.
+         */
+        extendSettings(settings) {
+          let defaultSettings = {
+            reverse: false,
+            max: 15,
+            startX: 0,
+            startY: 0,
+            perspective: 1000,
+            easing: "cubic-bezier(.03,.98,.52,.99)",
+            scale: 1,
+            speed: 300,
+            transition: true,
+            axis: null,
+            glare: false,
+            "max-glare": 1,
+            "glare-prerender": false,
+            "full-page-listening": false,
+            "mouse-event-element": null,
+            reset: true,
+            gyroscope: true,
+            gyroscopeMinAngleX: -45,
+            gyroscopeMaxAngleX: 45,
+            gyroscopeMinAngleY: -45,
+            gyroscopeMaxAngleY: 45,
+            gyroscopeSamples: 10
+          };
+
+          let newSettings = {};
+          for (var property in defaultSettings) {
+            if (property in settings) {
+              newSettings[property] = settings[property];
+            } else if (this.element.hasAttribute("data-tilt-" + property)) {
+              let attribute = this.element.getAttribute("data-tilt-" + property);
+              try {
+                newSettings[property] = JSON.parse(attribute);
+              } catch (e) {
+                newSettings[property] = attribute;
+              }
+
+            } else {
+              newSettings[property] = defaultSettings[property];
+            }
+          }
+
+          return newSettings;
+        }
+
+        static init(elements, settings) {
+          if (elements instanceof Node) {
+            elements = [elements];
+          }
+
+          if (elements instanceof NodeList) {
+            elements = [].slice.call(elements);
+          }
+
+          if (!(elements instanceof Array)) {
+            return;
+          }
+
+          elements.forEach((element) => {
+            if (!("vanillaTilt" in element)) {
+              element.vanillaTilt = new VanillaTilt(element, settings);
+            }
+          });
+        }
+      }
+
+      if (typeof document !== "undefined") {
+        /* expose the class to window */
+        window.VanillaTilt = VanillaTilt;
+
+        /**
+         * Auto load
+         */
+        VanillaTilt.init(document.querySelectorAll("[data-tilt]"));
+      }
+
+      return VanillaTilt;
+
+    }());
+
+
+
+
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    VanillaTilt.init(document.querySelectorAll(".hover-img"), {
+      max: 25,
+      speed: 300,
+      // gyroscope:true,
+      // perspective:1000,
+    });
+
+        //It also supports NodeList
+        // VanillaTilt.init(document.querySelectorAll(".hover-img"));
+  </script>
+
+</body>
+
+<script>
+
+  // image - slide - JS
+
+  let data = document.getElementById("data");
+
+  // ==============
+
+  // var marker = document.querySelector("#indicator")
+  // var item = document.querySelectorAll("")
+
+  // ==============
+
+  function show() {
+    data.innerHTML = null;
+
+    let div = document.createElement("div");
+    div.setAttribute("class", "container")
+
+    let div1 = document.createElement("div");
+    let div2 = document.createElement("div");
+
+    let para = document.createElement("div");
+    para.setAttribute("class", "text-part")
+    para.innerHTML = `<h1  class = "h-bold"><span>Zero </span>account charges </h1>
+ <p class = "para"> You don't have to pay a single rupee for opening a stocks account or account maintanace </p>
+ <button class = "create-btn" > Create Account For Free </button>
+ `
+
+    div1.setAttribute("class", "div-text")
+    div1.append(para)
+
+    let img = document.createElement("img");
+    img.src = "https://assets-netstorage.groww.in/web-assets/billion_groww_desktop/prod/build/client/images/stocks.74948e96.png";
+    img.setAttribute("class", "img-1");
+
+    div2.append(img);
+
+    div.append(div2, div1);
+
+    data.append(div);
+
+  }
+
+  function show1() {
+
+    data.innerHTML = null;
+
+
+    let div = document.createElement("div");
+    div.setAttribute("class", "container")
+
+    let div1 = document.createElement("div");
+    let div2 = document.createElement("div");
+
+    let para = document.createElement("div");
+    para.innerHTML = `<h1 class = "h-bold"><span> 0% </span>commision </h1>
+<p class = "para"> Select from 5000+ direct mutual funds and get higher return than regular funds.</p>
+<button class = "create-btn" > Create Account For Free </button>
+`
+
+    div1.setAttribute("class", "div-text")
+    div1.append(para)
+
+    let img = document.createElement("img");
+    img.src = "https://assets-netstorage.groww.in/web-assets/billion_groww_desktop/prod/build/client/images/mf.6c2cde91.png";
+    img.setAttribute("class", "img-1");
+
+    div2.append(img);
+
+    div.append(div2, div1);
+
+    data.append(div);
+
+  }
+
+  function show2() {
+
+    data.innerHTML = null;
+
+
+    let div = document.createElement("div");
+    div.setAttribute("class", "container")
+
+    let div1 = document.createElement("div");
+    let div2 = document.createElement("div");
+
+    let para = document.createElement("div");
+    para.innerHTML = `<h1  class = "h-bold"><span> Free </span>commision </h1>
+<p class = "para"> Invest in Apple, Google, Netflix and many more US companies that you love without any brokerage fee.</p>
+<button class = "create-btn" > Create Account For Free </button>
+`
+
+    div1.setAttribute("class", "div-text")
+    div1.append(para)
+
+    let img = document.createElement("img");
+    img.src = "https://assets-netstorage.groww.in/web-assets/billion_groww_desktop/prod/build/client/images/us.fc57ceac.png";
+    img.setAttribute("class", "img-1");
+
+    div2.append(img);
+
+    div.append(div2, div1);
+
+    data.append(div);
+
+  }
+
+
+  function show3() {
+
+    data.innerHTML = null;
+
+
+    let div = document.createElement("div");
+    div.setAttribute("class", "container")
+
+    let div1 = document.createElement("div");
+    let div2 = document.createElement("div");
+
+    let para = document.createElement("div");
+    para.innerHTML = `<h1  class = "h-bold"><span>6.7% </span>interest rate </h1>
+<p class = "para">Open fixed deposits in any bank with higher interest rates without opening a bank account.</p>
+<button class = "create-btn" > Create Account For Free </button>
+`
+
+    div1.setAttribute("class", "div-text")
+    div1.append(para)
+
+    let img = document.createElement("img");
+    img.src = "https://assets-netstorage.groww.in/web-assets/billion_groww_desktop/prod/build/client/images/fd.16c65ccc.png";
+    img.setAttribute("class", "img-1");
+
+    div2.append(img);
+
+    div.append(div2, div1);
+
+    data.append(div);
+
+  }
+
+  // debounce 
+
+  let searchInput = document.getElementById("search");
+
+  searchInput.oninput = () => {
+    deBounce(showData, 1000);
+  };
+
+  let timerId;
+  let dropdownBox = document.getElementById("dropDown");
+  function showData() {
+    let inputValue = document.getElementById("search").value;
+    fetch("http://localhost:3000/api/products")
+      .then((res) => {
+        return res.json();
+      })
+      .then((res) => {
+        console.log("For Search: ", res);
+        let productArr = [];
+        res.forEach(function (data) {
+          let temp = "";
+          for (let i = 0; i < data.product_name.length; i++) {
+            temp += data.product_name[i];
+            let tempLower = temp.toLowerCase();
+            if (inputValue == temp || inputValue == tempLower) {
+              console.log(data.product_name);
+              productArr.push(data);
+            }
+          }
+          dropDown(productArr);
+        });
+
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+  }
+
+  function dropDown(product) {
+    dropdownBox.innerHTML = null;
+    dropdownBox.setAttribute("class", "dropDown");
+    product.forEach((el) => {
+      let div = document.createElement("div");
+      div.setAttribute("class", "dropDownDiv");
+      let prodName = document.createElement("div");
+      prodName.innerHTML = el.product_name;
+      prodName.setAttribute("class", "dropDownName");
+
+      div.onclick = () => {
+        goToProduct(el);
+      }
+
+      div.append(prodName);
+      dropdownBox.append(div);
+    });
+  }
+
+  let productArr = JSON.parse(localStorage.getItem("itemData"));
+
+  function goToProduct(el) {
+    productArr[0] = el;
+    localStorage.setItem("itemData", JSON.stringify(productArr));
+    console.log(productArr);
+    window.location.href = "groww_product_description.html";
+  }
+
+  function deBounce(func, delay) {
+    if (timerId) {
+      clearTimeout(timerId);
+    }
+    timerId = setTimeout(function () {
+      func();
+    }, delay);
+  }
+
+</script>
+
+
+<script src="/scripts/navbar2.js"></script>
+
+
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Groww - My Cart</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="icon" href="https://groww.in/logo-groww270.png" type="image/x-icon">
+  <link rel="stylesheet" href="/css/navbar.css">
+  <link rel="stylesheet" href="/css/cart.css">
+  <link rel="stylesheet" href="/css/search_box.css">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: whitesmoke;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 30px;
+      color: #333;
+    }
+
+    .stock-container {
+      display: inline-block;
+      position: relative;
+      margin: 5px auto;
+
+      width: 30%;
+      background-color: #fff;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      box-shadow: 4px 6px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .stock-header {
+      background-color: #00d09c;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      border-radius:
+        10px;
+    }
+
+    .stock-units {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .stock-change {
+      font-size: 1.2rem;
+      margin-bottom:
+        0;
+    }
+
+
+    .stock-positive {
+      color: green;
+    }
+
+    .stock-negative {
+      color: red;
+    }
+
+    .insideBtn {
+      color: #f0f0f0;
+      text-decoration: none;
+      border: 2px solid #333;
+      background-color: #e9780d;
+      margin: 2px;
+      padding: 4px 4px;
+      border-radius: 5px;
+    }
+
+    .container {
+      margin: 0px auto;
+      justify-self: center;
+      align-items: center;
+      box-shadow: 4px 6px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .containers {
+      display: flex;
+      flex-wrap: wrap;
+
+
+
+    }
+
+    #hel {
+      text-align: center;
+    }
+
+    #hr {
+      text-align: center;
+      color: red;
+    }
+
+    #navBar {
+      background-color: #73ceb7;
+      overflow: hidden;
+    }
+
+    #navBar a {
+      padding: 7px 8px;
+      text-decoration: none;
+      color: white;
+      font-weight: 700;
+    }
+
+    #navBar a:hover {
+      background-color: #ddd;
+      color: black;
+      border-radius: 10px;
+
+    }
+
+    #navLogo {
+      width: 50px;
+      height: 50px;
+      margin-top: 5px;
+      margin-left: 7%;
+    }
+
+    #navBar {
+      display: flex;
+
+    }
+
+    .navBarList {
+      margin-left: 35%;
+      margin-top: 15px;
+    }
+
+    #autoBuyBtn {
+      margin-bottom: 10px;
+    }
+
+    #navBar h2 {
+      color: rgb(249, 242, 242);
+      border-radius: 10px;
+      margin: 10px;
+      margin-left: 5%;
+    }
+  </style>
+  <link rel="stylesheet" href="/css/navbar2.css">
+
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+
+  {{!-- <div class="sidebar">
+    <div class="logo-details">
+      <i class='bx bxl-c-plus-plus icon'></i>
+      <div class="logo_name">Virtual Trade</div>
+      <i class='bx bx-menu' id="btn"></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+        <i class='bx bx-search'></i>
+        <input type="text" placeholder="Search...">
+        <span class="tooltip">Search</span>
+      </li>
+      <li>
+        <a href="/api/showUserStocks/stockHome">
+          <i class='bx bx-grid-alt'></i>
+          <span class="links_name">Home</span>
+        </a>
+        <span class="tooltip">Dashboard</span>
+      </li>
+      <li>
+        <a href="/api/showUserStocks/showUserStocks">
+          <i class='bx bx-user'></i>
+          <span class="links_name">User Stocks</span>
+        </a>
+        <span class="tooltip">User</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-chat'></i>
+          <span class="links_name">Messages</span>
+        </a>
+        <span class="tooltip">Messages</span>
+      </li>
+      <li>
+        <a href="/api/showUserStocks/allUserReview">
+          <i class='bx bx-pie-chart-alt-2'></i>
+          <span class="links_name">Reviews</span>
+        </a>
+        <span class="tooltip">Analytics</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-folder'></i>
+          <span class="links_name">File Manager</span>
+        </a>
+        <span class="tooltip">Files</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-cart-alt'></i>
+          <span class="links_name">Order</span>
+        </a>
+        <span class="tooltip">Order</span>
+      </li>
+      <li>
+        <a href="/api/showUserStocks/wishlist">
+          <i class='bx bx-heart'></i>
+          <span class="links_name">Wishlist</span>
+        </a>
+        <span class="tooltip">Saved</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-cog'></i>
+          <span class="links_name">Setting</span>
+        </a>
+        <span class="tooltip">Setting</span>
+      </li>
+      <li class="profile">
+        <div class="profile-details">
+          <img src="profile.jpg" alt="profileImg">
+          <div class="name_job">
+            <div class="name"></div>
+            <div class="job">Web designer</div>
+          </div>
+        </div>
+        <i class='bx bx-log-out' id="log_out"></i>
+      </li>
+    </ul>
+  </div> --}}
+  <nav id="navBar">
+    <img id="navLogo" src="/images/logo2.png" alt="logo">
+    <h2>Trade Vantage</h2>
+    <div class="navBarList">
+      <a href="/api/showUserStocks/stockHome">Home</a>
+      <a href="/api/showUserStocks/showUserStocks">My Stocks</a>
+      <a href="/api/showUserStocks/stockSelect">Stocks</a>
+      <a href="/api/profileauth/transactionHistory">Transaction History</a>
+    </div>
+  </nav>
+
+
+  <h1 id="hel">Wishlist</h1>
+
+  <div class="containers">
+    {{#if resultWithProfit}}
+    {{#each resultWithProfit}}
+    <div class="stock-container" id="par">
+      <div class="stock-header">{{this.name}}</div>
+      <p>{{this.id}}</p>
+      <div class="stock-units">Units Holding: {{this.units}}</div>
+
+      <div class="stock-units">Current Value: <span style="color:purple;">&#8377;{{this.currValue}}</span></div>
+
+      <br>
+      <a class="insideBtn"
+        href="/api/showUserStocks/buyWishlist?id={{this.id}}&name={{this.name}}&units={{this.units}}">Buy</a>
+    </div>
+    {{/each}}
+    {{else}}
+    <div class="stock-container" id="par">
+      <h1 id="hr">Wishlist is empty</h1>
+
+    </div>
+    {{/if}}
+
+
+  </div>
+
+  </div>
+
+  <div id="footer">
+
+    <!-- Add footer contents here -->
+    <!-- <div>file</div> -->
+
+  </div>
+
+</body>
+
+<script src="/scripts/cart.js"></script>
+<script src="/scripts/search_box.js"></script>
+<script src="/scripts/changeNavbar.js"></script>
+<script src="/scripts/navbar2.js"></script>
+
+</html>

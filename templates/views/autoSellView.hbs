@@ -1,0 +1,127 @@
+<!-- stockuserHistory.hbs -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>autoSell</title>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        table {
+            margin: 0px 20%;
+            border-collapse: collapse;
+            width: 60%;
+        }
+
+        th {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+            background-color: #73ceb7;
+        }
+
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .heading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #navBar {
+            background-color: #73ceb7;
+            overflow: hidden;
+        }
+
+        #navBar a {
+            padding: 7px 8px;
+            text-decoration: none;
+            color: white;
+            font-weight: 700;
+        }
+
+        #navBar a:hover {
+            background-color: #ddd;
+            color: black;
+            border-radius: 10px;
+        }
+
+        #navLogo {
+            width: 50px;
+            height: 50px;
+            margin-top: 5px;
+            margin-left: 7%;
+        }
+
+        #navBar {
+            display: flex;
+        }
+
+        .navBarList {
+            margin-left: 35%;
+            margin-top: 15px;
+        }
+
+        #deleteBtn {
+            text-decoration: none;
+            color: black;
+            cursor: pointer;
+        }
+         #deleteBtn:hover {
+            color: coral;
+        }
+        #navBar h2 {
+            color: black;
+            border-radius: 10px;
+            margin: 10px;
+            margin-left: 5%;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="navBar">
+        <img id="navLogo" src="/images/logo2.png" alt="logo">
+        <h2>Trade Vantage</h2>
+        <div class="navBarList">
+            <a href="/api/showUserStocks/stockHome">Home</a>
+            <a href="/api/showUserStocks/showUserStocks">My Stocks</a>
+            <a href="/api/showUserStocks/stockSelect">Stocks</a>
+            <a href="/api/profileauth/transactionHistory">Transaction History</a>
+        </div>
+    </nav>
+    <h1 class="heading">Stocks Selected For Auto Sell</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Stock</th>
+                <th>Units</th>
+                <th>Target Price (in ₹)</th>
+                <th>action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each result}}
+            <tr>
+                <td>{{this.id}}</td>
+                <td>{{this.units}}</td>
+                <td>{{this.selected_price}}</td>
+                <td>
+                    <a id="deleteBtn"
+                        href="/api/profileauth/deleteAutoSell?username={{this.username}}&id={{this.id}}&selected_price={{this.selected_price}}">remove</a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</body>
+
+</html>

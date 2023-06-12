@@ -1,0 +1,1294 @@
+ /* @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Corinthia:wght@700&family=Open+Sans:ital,wght@0,300;1,700&family=Source+Code+Pro:ital,wght@1,506&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Corinthia:wght@700&family=Open+Sans:ital,wght@0,300;1,700&family=Patua+One&family=Source+Code+Pro:ital,wght@1,506&display=swap');  */
+
+@import url(./AnimationStyle.css);
+*{
+    padding:0;
+    margin:0;
+}
+body {
+    margin: auto;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow: auto;
+    /* background: linear-gradient(315deg, rgb(137, 183, 147) 3%, rgb(140, 205, 149) 38%, rgb(145, 201, 149) 68%, rgb(128, 181, 139) 98%); */
+    background: linear-gradient(315deg,rgb(156, 204, 217) 3%, rgb(156, 204, 217) 38%, rgb(156, 204, 217) 68%);
+    animation: gradient 15s ease infinite;
+    background-size: 400% 400%;
+    background-attachment: fixed;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+.wave {
+    background: rgba(222, 219, 219, 0.87);
+    border-radius: 1000% 1000% 0 0;
+    position: fixed;
+    width: 200%;
+    height: 12em;
+    animation: wave 10s -3s linear infinite;
+    transform: translate3d(0, 0, 0);
+    opacity: 0.8;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.wave:nth-of-type(2) {
+    bottom: -1.25em;
+    animation: wave 18s linear reverse infinite;
+    opacity: 0.8;
+}
+
+.wave:nth-of-type(3) {
+    bottom: -2.5em;
+    animation: wave 20s -1s reverse infinite;
+    opacity: 0.9;
+}
+
+@keyframes wave {
+    2% {
+        transform: translateX(1);
+    }
+
+    25% {
+        transform: translateX(-25%);
+    }
+
+    50% {
+        transform: translateX(-50%);
+    }
+
+    75% {
+        transform: translateX(-25%);
+    }
+
+    100% {
+        transform: translateX(1);
+    }
+}
+body {
+    background-color: #dce7f5;
+}
+ul li {
+    list-style-type: none;
+  }
+  a {
+    text-decoration: none;
+  }
+  button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.nav {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav_menu_list {
+    position:absolute;
+    top: 25px;
+    right:20px;
+    display: flex;
+    align-items: center;
+  }
+  .nav_menu_list .nav_menu_item {
+    margin: 0 2rem;
+  }
+  .nav_menu_item .nav_menu_link {
+    font-size: 16.5px;
+    line-height: 27px;
+    color: rgb(12, 12, 12);
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+  }
+  .nav_menu_link:hover {
+    color: red;
+  }
+  .toggle_btn {
+    font-size: 20px;
+    font-weight: 600;
+    color: green;
+    z-index: 4;
+  }
+.Dbms_Top{
+    width:100%;
+    height: 83px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.Dbms_logo{
+    /* width: 70px;
+    height: 400px; */
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 8px;
+    left: 75px;
+}
+.Dbms_logo img{
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+
+/*******search*****************/
+.Dbms_searchContainer{
+    width: 443px;
+    background-color: #dce7f5;
+    height: 41px;
+    display: flex;
+    align-items: center;
+    padding:0px 10px;
+    border-radius: 5px;
+    box-shadow: -2px -2px 5px rgba(148, 148, 148,0.2),
+    2px 2px 5px rgba(148, 148, 148,0.2);
+}
+.Dbms_searchContainer input{
+    margin:0px 10px;
+    font-size: 16px;
+    width: 100%;
+    border:none;
+    outline: none;
+}
+.Dbms_searchContainer i {
+    font-size: 15px;
+    color:rgb(148, 148, 148);
+}
+.Dbms_LoginRegister{
+    width: 246px;
+    height: 79px;
+    display: flex;
+    align-items: center;
+    position:absolute;
+    top: 10px;
+    right: 10px;
+}
+.Dbms_LoginRegister button{
+    background-color: #050606;
+    border:none;
+    width:175px;
+    height: 45px;
+    top: 8px;
+    right: 16px;
+    color:white;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+
+/***************************************************************************************************/
+/*                                      middle_part                                                */
+/**************************************************************************************************/
+
+.Dbms_Started_Container{
+    width: 362px;
+    height: 55px;
+    position: absolute;
+    left: 80px;
+}
+.Goww_StartedButton{
+    width: 200px;
+    height: 55px;
+    background-color: #0b0b0b;
+    border:none;
+    font-size: 20px;
+    color:white;
+    border-radius:5px;
+}
+
+.InvestIn{
+    display: flex;
+    font-size: 38px;
+    color:#1e1e1f;
+    position: absolute;
+    left: 75px;
+    /* font-weight: 500; */
+}
+.Slidder_vertical{
+    text-indent: 15px;
+    height:60px;
+    display: flex;
+    flex-direction: column-reverse;
+    overflow: hidden;
+    
+}
+.Slidder_vertical span{
+    display: flex;
+    flex-direction: column;
+    /* animation:verticalSlide 7s infinite;
+    animation-delay: 3s; */
+    position: relative;
+    height: 80px;
+}
+/****animation***************/
+@keyframes verticalSlide {
+      0%{
+            bottom:0px;
+      }
+      17%{
+            bottom:-70px;
+      }
+      34%{
+            bottom:-140px;
+      }
+      68%{
+          bottom: -210px;
+      }
+      85%{
+          bottom: -280px;
+      }
+      100%{
+          bottom:-350px
+      }
+         
+}
+/*color**/
+.Stocks_Color{
+    color:#5367ff;
+    padding-top:10px;
+    padding-bottom: 15px;
+}
+.MutualFunds_Color{
+    color:#00d09c;
+    padding-top:10px;
+    padding-bottom: 15px;
+}
+.FuturesOptions_Color{
+    color:#ffb61b;
+    padding-top:10px;
+    padding-bottom: 15px;
+}
+.UsStocks_Color{
+    color:#eb5b3c;
+    padding-top:10px;
+    padding-bottom: 15px;
+}
+.IPO_Color{
+    color:#d2ab66;
+    padding-top:10px;
+    padding-bottom: 15px;
+}
+.FDs_Color{
+    color:#5367ff;
+    padding-top:10px;
+    padding-bottom: 15px;
+}
+/******middle left side***/
+.Grow_middle_col2{
+    display: flex;
+    animation: BottomToTopAnimation 2s linear;
+}
+.Grow_middle_col2 a{
+    width:180px;
+    height: 140px;
+    box-shadow: 3px 6px 24px rgba(0,0,0,0.1);
+    border-radius: 20px;
+    margin-top:15px;
+    margin-bottom:15px;
+    margin-left:50px;
+    padding:20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-decoration: none;
+    color:#44475b;
+    background-color: #fff;
+}
+.middle_part{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+    margin:30px 100px;
+}
+.Grow_Middle_Left_Text{
+    position: absolute;
+    left: 75px;
+    margin:30px 0px;
+    font-size: 18px;
+    color:#0a0a0b;
+    letter-spacing: 0.5px;
+    width: 400px;
+    line-height: 30px;
+}
+
+/********************Our Product****************************************/
+.DbmsProduct{
+    margin:20px 100px;
+}
+.OurProduct_Text{
+    background-color:#ecedef;
+    color:#44475b;
+    letter-spacing: 0.3px;
+    font-size: 12px;
+    padding:5px 10px;
+    border-radius: 15px;
+    min-width: 50px;
+    width: fit-content;
+}
+.yourMoneyYourChoice_Text{
+    font-size: 35px;
+    color: #0d0d0e;
+    line-height: 25px;
+    letter-spacing: .2px;
+    margin:30px 0px 70px 0px;
+    position: absolute;
+    left: 400px;
+}
+.DbmsProduct_Navbar{
+    display: flex;
+}
+.DbmsProduct_StocksDetails,
+.DbmsProduct_MutualFundsDetails,
+.DbmsProduct_UsStocksDetails,
+.DbmsProduct_FDsDetails{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 55px;
+    margin-right: 50px;
+    cursor: pointer;
+}
+
+.DbmsProduct_StocksDetails > div,
+.DbmsProduct_MutualFundsDetails > div,
+.DbmsProduct_UsStocksDetails > div ,
+.DbmsProduct_FDsDetails > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: 900;
+    color: #44475b;
+    margin: 0px 10px;
+}
+
+/***svg*****/
+.DbmsProduct_StocksDetails > svg,
+.DbmsProduct_MutualFundsDetails > svg,
+.DbmsProduct_UsStocksDetails > svg ,
+.DbmsProduct_FDsDetails > svg {
+    width: 25px;
+    height: 25px;
+    filter: grayscale(1);
+    padding:10px;
+    border-radius: 30px;
+}
+
+.DbmsProduct_Display{
+    height: 355px;
+    margin: 100px 0px;
+}
+.ZeroText{
+    font-size: 80px;
+    font-weight: 900;
+    color:#323441;
+    letter-spacing: 1px;
+
+}
+.DbmsProduct_StocksDetails_Display_RightPart h2{
+    font-size: 28px;
+    color:#323441;
+
+}
+.stocksDetails_Text{
+    font-size: 18px;
+    color:#202021;
+    line-height: 26px;
+    width: 400px;
+    margin: 20px 0px;
+}
+.DbmsProduct_Button_CreateAccountFree button{
+    width: 205px;
+    height: 45px;
+    color:white;
+    background: #090909;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    margin-top: 30px;
+}
+.DbmsProduct_StocksDetails_Display{
+    display: flex;
+    justify-content: space-evenly;
+}
+.veiwAllProduct_Container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px 0px;
+    
+}
+.veiwAllProduct_Container .text{
+    color:#00d09c;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+}
+/**************NavbarUnderlineActive******************/
+.NavbarUnderlineActive{
+    height: 3px;
+    width: 200px;
+    background-color: #00d09c;
+    position: relative;
+    transform: translate(-850px,60px);
+    transition: 1s;
+}
+
+/****javascript class addd*****/
+.StockActive.Active1{
+    filter : brightness();
+    background-color: #e5faf5;
+}
+.MutualFundActive.Active2{
+    filter: brightness();
+    background-color: #eef0ff;
+    padding: 10px;
+    
+}
+.UsStockActive.Active3{
+    filter:brightness();
+    background-color: #fae9e5;
+    
+}
+.FDActive.Active4{
+    filter:brightness();
+    background-color: #fae9e5;
+
+}
+/***************************************************************************************/
+.Dbms_TrustedByContainer{
+    width: auto;
+    height: 600px;
+    background-color:#5367ff;
+    color:#ffffff;
+    position: relative;
+}
+.Dbms_TrustedBackgroundImage{
+    width: auto;
+    height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-image: url("./ImageTrusted/shield-Dbms.png");
+    background-position-y:-80px;
+}
+.DbmsTrusted_Left_Heading{
+    font-size: 70px;
+    margin-top: 100px;
+}
+.DbmsTrusted_left_Text{
+    font-size: 20px;
+    width: 560px;
+    margin: 50px 0px;
+}
+
+.DbmsTrusted_right{
+    width: 400px;
+}
+/*************************************************learning part*********************************/
+.DbmsLeaning_Image{
+    width: 350px;
+    height: 275px;
+    margin: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.DbmsLeaning_Image img{
+    width: 350px;
+    height: 275px;
+}
+.DbmsLearning_Container{
+    display: flex;
+    width: auto;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.DbmsLearningSection{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.DbmsLearning_Heading{
+    font-size: 35px;
+    font-weight: 900;
+    margin: 60px 0px;
+    color:#323441;
+}
+.DbmsLearning_Details{
+    font-size: 25px;
+    width: 350px;
+    text-align: center;
+    margin: 40px 0px;
+}
+.DbmsLearning_Container a{
+    text-decoration: none;
+    color: #323441;
+    font-weight: 500;
+}
+.DbmsLearning_moreSection a{
+    color: #00d09c;
+    text-decoration: none;
+    font-size: 18px;
+}
+.DbmsLearning_moreSection{
+    margin: 50px 0px;
+}
+/************In press section******************/
+.DbmsInPress_Name img{
+    width: 166px;
+    height: 88px;
+    filter: grayscale(1);
+}
+.DbmsInPress_Name{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 40px 0px;
+}
+.DbmsInPressSection_Heading{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.DbmsInPressSection_Heading hr{
+    width: 450px;
+    height: 0.5px;
+    background-color: rgb(231, 227, 227);
+    border:none;
+}
+.DbmsInpressSection_Text {
+    font-size: 45px;
+    color: #323441;
+    margin: 10px;
+}
+.DbmsInPressSection{
+    margin: 25px 0px;
+}
+/***************************DbmsInvestor*********************************/
+.DbmsInvestor{
+    margin: 80px 100px;
+}
+.DbmsInvestor_top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.headingandDetails h2{
+    font-size: 40px;
+    color: #44475b;
+}
+.headingandDetails p{
+    font-size: 20px;
+    color: #7c7e8c;
+    letter-spacing: 0.5px;
+}
+.DbmsInvestor_moreSection a{
+    color: #00d09c;
+    text-decoration: none;
+}
+.DbmsInvestor_top{
+    margin: 50px 0px;
+}
+
+.DbmsInvestor_ReviewsContainer{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+.DbmsInvestor_ReviewBox{
+    width: 360px;
+    height: 400px;
+    margin:20px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 30px;
+}
+.DbmsInvestor_image{
+    width: 86px;
+    height: 60px;
+}
+.DbmsInvestor_image img{
+    width: 56px;
+    height: 60px;
+    border-radius: 60px;
+}
+.DbmsInvestor_Profile_star{
+    display: flex;
+    align-items: center;
+}
+.DbmsInvestor_Star i{
+    color:orange;
+}
+.DbmsInvestor_Telling{
+    width: 288px;
+    height: 180px;
+    margin: 20px 0px;
+}
+.DbmsInvestor_Telling p{
+    letter-spacing: 1px;
+    word-spacing: 1.5px;
+    font-size: 20px;
+    line-height: 35px;
+    color:#323441;
+}
+.DbmsInvestor_Name_profession{
+    margin: 25px 0px;
+}
+.DbmsInvestor_Name{
+    font-size: 20px;
+}
+.DbmsInvestor_Profession{
+    font-size: 16px;
+    color: #7c7e8c;
+}
+/****************InvestAnyWhereContainer****************************************/
+.applist img{
+    width: 255px;
+    height: 360px;
+}
+.InvestAnyWhereContainer{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.InvestAnyWhereContainer_Left_Text{
+    font-size: 50px;
+    width: 390px;
+    color:#323441;
+}
+.InvestAnyWhereContainer_Left p{
+    color:#7c7e8c;
+    font-size: 20px;
+    margin: 30px 0px;
+    width: 390px;
+}
+.ListContainer_List{
+    display: flex;
+    align-items: center;
+    margin: 30px 0px;
+}
+.ListContainer_Details_Heading_Description{
+    font-size: 18px;
+    margin: 20px 0px;
+    width: 250px;
+    color:#7c7e8c;
+}
+.ListContainer_Details_Heading{
+    font-size: 20px;
+    font-weight: 900;
+}
+.ListContainer_Details{
+    margin-left:40px;
+}
+.InvestAnyWhereContainer_Right{
+    display: flex;
+    align-items: center;
+}
+.applist{
+    margin:20px;
+}
+/********************************support******************************************/
+.SupportSection{
+    margin:100px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.SupportContainer{
+    background-color: #0c59c4;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 1110px;
+    padding-top:40px;
+    
+}
+.SupportSection_left{
+    width: 500px;
+}
+
+.SupportSection_left h2{
+    font-size: 35px;
+    color:white;
+    margin:30px 0px;
+}
+.SupportSection_left p{
+    font-size: 17px;
+    width: 500px;
+    line-height: 30px;
+    color:white;
+
+}
+.SupportSection_left button{
+    width: 200px;
+    height: 50px;
+    border:none;
+    font-size: 18px;
+    color:#111211;
+    margin: 30px 0px;
+    color: #00d09c;
+}
+.SupportSection_Right{
+    position: relative;
+    bottom: -4px;
+}
+/*******************FooterSection*******************************************************/
+.FooterSection{
+    background-color: #1e2232;
+    width: 100% auto;
+    height: 400px;
+    color:white;
+    padding-top:40px;
+}
+.row{
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+.FooterSection_Address1{
+    margin-top:25px;
+}
+.FooterSection_Address1,
+.FooterSection_Address2,
+.FooterSection_Address3{
+    font-size: 18px;
+}
+
+.FooterSection_Product h2,
+.FooterSection_Dbms h2,
+.FooterSection_QuickLink h2{
+    margin-bottom: 40px;
+    font-size: 20px;
+}
+
+.FooterSection_ProductList,
+.FooterSection_DbmsList,
+.FooterSection_QuickLinkList{
+    font-size: 18px;
+    line-height: 28px;
+}
+.FooterSection_ContactSocialMedia .ContactUs{
+    text-decoration: underline;
+    margin-bottom: 10px;
+}
+.SocialMedia_icon{
+    margin: 5px;
+}
+
+.horizontalLine{
+    height: 0.3px;
+    width: 85%;
+    background-color:#7c7e8c;
+    margin:30px 100px;
+}
+
+.DbmsApplicationDownload a{
+    margin-right:20px;
+}
+.DbmsFooterlast{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    margin:0px 100px;
+}
+@media screen and (max-width: 991px) {
+  .wrapper {
+    padding-top: 3rem;
+  }
+  .grid-cols-2 {
+    grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+  }
+  .grid-item-1 {
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0;
+  }
+  .main-heading {
+    font-size: 32px;
+    text-align: center;
+    line-height: 40px;
+  }
+  .info-text {
+    font-size: 16px;
+    text-align: center;
+    padding: 0.7rem;
+  }
+  .btn_wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .grid-item-2 {
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .team_img_wrapper {
+    width: 350px;
+    height: 350px;
+  }
+  .featured_info span {
+    font-size: 19px;
+  }
+}
+.separator-type, .title-type, .intro-type, .content-type .intro-type p {
+  position: relative;
+}
+.intro-type .container {
+  padding: 107px 0px 102px 0px !important;
+}
+#product-header-section, .intro-type .container {
+  padding: 68px 15px 72px !important;
+}
+
+.parallax {
+  background-attachment: inherit !important;
+}
+.parallax {
+  background-attachment: inherit !important;
+  background-repeat: repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  width: 100%;
+  z-index: -10;
+}
+.company-heading h1 {
+  margin-bottom: 40px;
+  line-height: 80px;
+  color: #afecf0;
+  font-weight: 1000 !important;
+  text-align: center;
+}
+.seo-header, .product-header, .intro-type .container h1.white, .company-heading h1 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100 !important;
+  text-transform: capitalize;
+  font-size: 65px;
+  margin-bottom: 20px;
+}
+.company-sections h2, .careers-sections h2, .perks-section h2 {
+  font-weight: 800;
+  font-size: 50px;
+}
+.company-sections h2, .company-sections h3, .careers-sections h2, .perks-section h2 {
+  font-family: 'proxima-nova', sans-serif;
+}
+.company-sections h3 {
+  font-size: 25px;
+  font-weight: 700;
+  margin: 14px 0;
+  font-family: 'proxima-nova', sans-serif;
+  text-transform: capitalize;
+}
+.red-border {
+  width: 50%;
+  border-bottom: 1px solid #d2282e;
+  margin: 0 auto;
+  height: 16px;
+}
+.company-sections p {
+  margin-top: 20px;
+}
+.ct-u-size22 {
+  font-size: 22px;
+}
+.ct-u-fontWeight300 {
+  font-weight: 300;
+}
+.marginTop40 {
+  margin-top: 40px !important;
+}
+.ct-u-paddingBoth100 {
+  padding: 100px 15px;
+}
+.culture-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.45),rgba(0, 0, 0, 0.45)) top no-repeat;
+}
+.company-sections, .careers-sections, .left-headquarter-section-img, .right-headquarter-section-img {
+  text-align: center;
+}
+.ct-u-paddingBoth100 {
+  padding: 100px 15px;
+}
+.company-sections h2, .careers-sections h2, .perks-section h2 {
+  font-weight: 800;
+  font-size: 50px;
+}
+.company-sections h2, .company-sections h3, .careers-sections h2, .perks-section h2 {
+  font-family: 'proxima-nova', sans-serif;
+}
+.slick-slider {
+  margin-bottom: 0;
+}
+.slick-slider {
+  position: relative;
+  display: block;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+  -ms-touch-action: pan-y;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+}
+.slick-slider .slick-track, .slick-slider .slick-list {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.slick-list {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+.slick-track {
+  position: relative;
+  top: 0;
+  left: 0;
+  display: block;
+}
+.slider .item {
+  overflow: hidden;
+}
+.slick-slide {
+  display: none;
+  float: left;
+  height: 100%;
+  min-height: 1px;
+}
+.logos {
+  margin-right: -5px;
+  margin-left: -5px;
+}
+ul.logos li {
+  cursor: pointer;
+}
+.logos > li {
+  float: left;
+  width: 16.66666%;
+  padding: 5px;
+}
+.logos .logos-inner {
+  position: relative;
+}
+.slick-slide img {
+  display: inline-block;
+}
+.logo-image {
+  position: relative;
+  width: 100%;
+}
+ul.logos li {
+  cursor: pointer;
+}
+.logos > li {
+  float: left;
+  width: 16.66666%;
+  padding: 5px;
+}
+.logos .logos-inner {
+  position: relative;
+}
+.slick-slide img {
+  display: inline-block;
+}
+img {
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: middle;
+}
+.fa {
+font-size: 42px;
+}
+.btn-solodev-red-reversed {
+  background-color: #fff;
+  color: #d2282e;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  padding: 12px 35px;
+}
+.btn, .btn-blk {
+  font-size: 18px !Important;
+}
+a:hover, a:focus {
+  text-decoration: none;
+}
+.ct-u-size19 {
+margin-top: 40px; 
+}
+a:hover {
+  color: #000;
+}
+section.clients-home .clients-logos .client-logos-repeater {
+  height: 260px;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  cursor: pointer;
+}
+
+section.clients-home .clients-logos .client-logos-repeater img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  left: 0;
+  right: 0;
+}
+.logo-title {
+  position: absolute;
+  display: none;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: #FFF;
+  background-color: #0079c2;
+}
+.ct-u-paddingBottom100 {
+margin-top: 40px;
+}
+.culture-section {
+background-size: cover;
+color: #fff;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Exo+2|Yatra+One');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Exo 2', sans-serif;
+}
+.wrapper1{
+  margin-top: 60px;
+  text-align: center;
+} 
+
+ .wrapper1 h1{
+  font-family: 'Yatra One', cursive;
+  font-size: 48px;
+  color: #131010;
+  margin-bottom: 25px;
+  height: auto;
+}
+
+.our_team{
+  width: auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.our_team .team_member{
+  width: 250px;
+  margin: 5px;
+  background: #fff;
+  padding: 20px 10px;
+}
+
+.our_team .team_member .member_img{
+  background: #e9e5fa;  
+  max-width: 190px;
+  width: 100%;
+  height: 190px;
+  margin: 0 auto;
+  border-radius: 50%;
+  padding: 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+.our_team .team_member .member_img img{
+  width: 100%;
+  height: 100%;
+}
+
+.our_team .team_member h3{
+  position: center;
+  text-transform: uppercase;
+  font-size: 18px;
+  line-height: 18px;
+  letter-spacing: 2px;
+  margin: 15px 0 0px;
+}
+
+.our_team .team_member span{
+  font-size: 10px;
+}
+
+.our_team .team_member p{
+  margin-top: 20px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.our_team .team_member .member_img .social_media{
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  background: rgba(0,0,0,0.65);
+  width: 95%;
+  height: 95%;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: scale(0);
+   transition: all 0.5s ease;
+}
+
+.our_team .team_member .member_img .social_media .item{
+  margin: 0 10px;
+}
+
+.our_team .team_member .member_img .social_media .fab{
+  color: #8c7ae6;
+  font-size: 20px;
+}
+
+.our_team .team_member .member_img:hover .social_media{
+  transform: scale(1);
+}
+
+
+/* body {
+    font-family: "Roboto", sans-serif;
+    background-color: #fff;
+    line-height: 1.9;
+    color: #8c8c8c; }
+   */
+  h1, h2, h3, h4, h5, h6,
+  .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: "Roboto", sans-serif;
+    color: #000; }
+  
+  a {
+    -webkit-transition: .3s all ease;
+    -o-transition: .3s all ease;
+    transition: .3s all ease; }
+    a, a:hover {
+      text-decoration: none !important; }
+  
+  .text-black {
+    color: #000; }
+  
+  .content {
+    padding: 0rem 0; }
+  
+  .heading {
+    font-size: 2.5rem;
+    font-weight: 900; }
+  
+  .form-control {
+    border: none;
+    background: #f3f3f3; }
+    .form-control:active, .form-control:focus {
+      outline: none;
+      -webkit-box-shadow: none;
+      box-shadow: none;
+      border-color: #000;
+      background: #f3f3f3; }
+  
+  .col-form-label {
+    color: #000; }
+  
+  .btn, .form-control, .custom-select {
+    height: 50px; }
+  
+  .custom-select:active, .custom-select:focus {
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-color: #000; }
+  
+  .btn {
+    border: none;
+    border-radius: 4px !important; }
+    .btn.btn-primary {
+      background: #000;
+      color: #fff;
+      padding: 15px 20px; }
+    .btn:hover {
+      color: #fff; }
+    .btn:active, .btn:focus {
+      outline: none;
+      -webkit-box-shadow: none;
+      box-shadow: none; }
+  
+  .box {
+    padding: 40px;
+    background: #fff;
+    -webkit-box-shadow: -30px 30px 0px 0 rgba(0, 0, 0, 0.08);
+    box-shadow: -30px 30px 0px 0 rgba(0, 0, 0, 0.08); }
+    .box h3 {
+      font-size: 14px;
+      margin-bottom: 30px;
+      text-align: center; }
+  
+  label.error {
+    font-size: 12px;
+    color: red; }
+  
+  #message {
+    resize: vertical; }
+  
+  #form-message-warning, #form-message-success {
+    display: none; }
+  
+  #form-message-warning {
+    color: #B90B0B; }
+  
+  #form-message-success {
+    color: #55A44E;
+    font-size: 18px;
+    font-weight: bold; }
+  
+  .submitting {
+    float: left;
+    width: 100%;
+    padding: 10px 0;
+    display: none;
+    font-weight: bold;
+    font-size: 12px;
+    color: #000; }
+  

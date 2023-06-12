@@ -1,0 +1,123 @@
+<!-- transactionHistory.hbs -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Transaction History</title>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        table {
+            margin: 0px 10%;
+            border-collapse: collapse;
+            width: 80%;
+        }
+
+        th {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+            background-color: #73ceb7;
+        }
+
+        td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        .heading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #navBar {
+            background-color: #73ceb7;
+            overflow: hidden;
+        }
+
+        #navBar a {
+            padding: 7px 8px;
+            text-decoration: none;
+            color: white;
+            font-weight: 700;
+        }
+
+        #navBar a:hover {
+            background-color: #ddd;
+            color: black;
+            border-radius: 10px;
+
+        }
+
+        #navLogo {
+            width: 50px;
+            height: 50px;
+            margin-top: 5px;
+            margin-left: 7%;
+        }
+
+        #navBar {
+            display: flex;
+
+        }
+
+        .navBarList {
+            margin-left: 35%;
+            margin-top: 15px;
+        }
+
+        #navBar h2 {
+            color: rgb(251, 248, 248);
+            border-radius: 10px;
+            margin: 10px;
+            margin-left: 5%;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id="navBar">
+        <img id="navLogo" src="/images/logo2.png" alt="logo">
+        <h2>Trade Vantage</h2>
+        <div class="navBarList">
+            <a href="/api/showUserStocks/stockHome">Home</a>
+            <a href="/api/showUserStocks/showUserStocks">My Stocks</a>
+            <a href="/api/showUserStocks/stockSelect">Stocks</a>
+            <a href="/api/profileauth/transactionHistory">Transaction History</a>
+
+        </div>
+    </nav>
+    <h1 class="heading">Transaction History</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Stock</th>
+                <th>Units</th>
+                <th>Amount Used (in ₹)</th>
+                <th>Date</th>
+                <th>Time</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {{#each result}}
+            <tr>
+                <td>{{this.id}}</td>
+                <td>{{this.units}}</td>
+                <td>{{this.amountUsed}}</td>
+                <td>{{this.date}}</td>
+                <td>{{this.time}}</td>
+
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</body>
+
+</html>

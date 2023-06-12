@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Stocks</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/search_box.css">
+    <link rel="stylesheet" href="/css/mostBought.css">
+
+    <style>
+        #container {
+            width: 80%;
+            margin: 5% 10% 15% 10%;
+            display: flex;
+        }
+
+        .filter_section,
+        .filter_section_one {
+            display: inline-block;
+            width: 270px;
+            border: 1px solid #ecedef;
+            border-radius: 3px;
+            box-shadow: 0 2px 3px 0 #0000001a;
+            padding-bottom: 10px;
+
+        }
+
+        .filter_section_one {
+            padding: 5px 0 15px 0;
+            display: flex;
+        }
+
+        #clearFilterBtn {
+            margin: 5% 0 0 45%;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            color: #00d09c;
+        }
+
+        .right {
+            width: 800px;
+            margin-top: 60px;
+
+
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+
+
+        }
+
+        .icon {
+            width: 35px;
+            height: 35px;
+            padding: 12px;
+
+
+        }
+
+        .MFtext,
+        .filterHeading {
+            font-size: 1rem;
+            letter-spacing: 0.01em;
+            color: #44475b;
+            font-weight: 700;
+            display: inline-block;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+        }
+
+        .filterHeading {
+            margin-top: 15px;
+            padding-left: 10px;
+
+        }
+
+        .sub {
+            display: grid;
+            grid-template-columns: 200px 200px;
+            grid-gap: 320px;
+
+        }
+
+        .MFsub_text {
+
+            width: 200px;
+            margin-top: 3px;
+            font-size: .78rem;
+            line-height: 160%;
+            color: #7c7e8c;
+            letter-spacing: .2px;
+            margin-left: 60px;
+        }
+
+        .MFsub_text2 {
+
+            width: 200px;
+            margin-top: 3px;
+            font-size: .78rem;
+            line-height: 160%;
+            color: #7c7e8c;
+            letter-spacing: .2px;
+
+
+        }
+
+        .MFdiv {
+            border: 1px solid rgb(219, 214, 214);
+            height: 100px;
+            transition: 0.2s;
+            box-shadow: 0 2px 3px 0 #0000001a;
+            cursor: pointer;
+            margin-left: 89px;
+        }
+
+        .MFdiv:hover {
+            transform: scale(1.01);
+
+        }
+
+        .returns {
+
+
+            float: right;
+            margin-top: 30px;
+            margin-right: 35px;
+
+            font-size: 1rem;
+            letter-spacing: 0.01em;
+            color: #44475b;
+            font-weight: 700;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .left {
+            display: grid;
+            grid-template-columns: 220px;
+            margin-left: 50px;
+            height: 700px;
+            width: 300px;
+            position: sticky;
+
+        }
+
+        .scroll {
+            overflow: auto;
+        }
+
+        .head {
+            color: #44475b;
+            letter-spacing: .01em;
+            line-height: 160%;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: inline-block;
+        }
+
+        .Sort {
+
+            margin-left: 435px;
+            margin-top: 1.5%;
+            width: 220px;
+            font-size: 13px;
+            padding: 5px 10px;
+            height: 80%;
+            color: #7c7e8c;
+            border: 1px solid rgb(219, 214, 214);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .Sort:focus {
+            outline: none;
+        }
+
+
+        .box {
+            font-size: 14px;
+            color: #44475b;
+            letter-spacing: .3px;
+            padding: 5px;
+        }
+
+        .cat {
+            height: 150px;
+        }
+
+        .productTileOne {
+            position: absolute;
+            display: flex;
+            padding: 0;
+            margin-left: 34%;
+            margin-top: 3%;
+            width: 60%;
+
+        }
+
+
+
+
+        @media(max-width: 600px) {
+
+
+
+            .left {
+                display: none;
+
+            }
+
+            .right {
+                margin-left: -19px;
+                width: 99%;
+                margin-top: 35px;
+
+
+            }
+
+            .icon {
+                width: 28px;
+                height: 28px;
+                padding: 0px;
+                padding-right: 4px;
+
+
+            }
+
+            .MFdiv {
+                border: 1px solid rgb(219, 214, 214);
+                height: 80px;
+                width: 85%;
+                transition: 0.2s;
+                box-shadow: 0 2px 3px 0 #0000001a;
+                cursor: pointer;
+
+            }
+
+            .returns {
+
+                display: none;
+            }
+
+            .MFsub_text {
+
+                width: 65%;
+                margin-top: 3px;
+                font-size: .62rem;
+                line-height: 160%;
+                color: #7c7e8c;
+                letter-spacing: .2px;
+                margin-left: 20%;
+                word-break: break-word;
+            }
+
+            .MFsub_text2 {
+                display: none;
+
+                width: 200px;
+                margin-top: 3px;
+                font-size: .78rem;
+                line-height: 160%;
+                color: #7c7e8c;
+                letter-spacing: .2px;
+                margin-left: 20%;
+
+            }
+
+
+            .MFtext {
+
+                margin-left: 2px;
+                width: 70%;
+                font-size: 0.9rem;
+                letter-spacing: 0.01em;
+                color: #44475b;
+                font-weight: 600;
+                display: inline-block;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+
+            }
+
+
+
+
+            .productTileOne {
+
+                position: absolute;
+                margin-left: 2px;
+                padding: 0;
+                font-size: small;
+                margin-top: 3%;
+                width: 75%;
+
+                height: 30px;
+
+            }
+
+            .head {
+                color: #44475b;
+                letter-spacing: .01em;
+                width: 90%;
+                font-size: 1rem;
+                font-weight: 700;
+                display: inline-block;
+            }
+
+
+            .Sort {
+
+                display: none;
+            }
+
+
+        }
+
+        img {
+            width: 50px;
+            height: 50px;
+        }
+
+        #right {
+            margin-left: 20px;
+        }
+
+        #navBar {
+            background-color: #73ceb7;
+            overflow: hidden;
+        }
+
+        #navBar a {
+            padding: 7px 8px;
+            text-decoration: none;
+            color: white;
+            font-weight: 700;
+        }
+
+        #navBar a:hover {
+            background-color: #ddd;
+            color: black;
+            border-radius: 10px;
+
+        }
+
+        #navLogo {
+            width: 50px;
+            height: 50px;
+            margin-top: 5px;
+            margin-left: 7%;
+        }
+
+        #navBar {
+            display: flex;
+
+        }
+
+        .navBarList {
+            margin-left: 35%;
+            margin-top: 15px;
+        }
+
+        #autoBuyBtn {
+            margin-bottom: 10px;
+        }
+
+        #navBar h2 {
+            color: rgb(249, 242, 242);
+            border-radius: 10px;
+            margin: 10px;
+            margin-left: 5%;
+        }
+    </style>
+    <link rel="stylesheet" href="/css/navbar2.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+
+    {{!-- <div class="sidebar">
+        <div class="logo-details">
+            <i class='bx bxl-c-plus-plus icon'></i>
+            <div class="logo_name">Virtual Trade</div>
+            <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <ul class="nav-list">
+            <li>
+                <i class='bx bx-search'></i>
+                <input type="text" placeholder="Search...">
+                <span class="tooltip">Search</span>
+            </li>
+            <li>
+                <a href="/api/showUserStocks/stockHome">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Home</span>
+                </a>
+                <span class="tooltip">Home</span>
+            </li>
+            <li>
+                <a href="/api/showUserStocks/showUserStocks">
+                    <i class='bx bx-user'></i>
+                    <span class="links_name">User Stocks</span>
+                </a>
+                <span class="tooltip">User Stocks</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-chat'></i>
+                    <span class="links_name">Messages</span>
+                </a>
+                <span class="tooltip">Messages</span>
+            </li>
+            <li>
+                <a href="/api/showUserStocks/allUserReview">
+                    <i class='bx bx-pie-chart-alt-2'></i>
+                    <span class="links_name">Reviews</span>
+                </a>
+                <span class="tooltip">Reviews</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-folder'></i>
+                    <span class="links_name">File Manager</span>
+                </a>
+                <span class="tooltip">Files</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-cart-alt'></i>
+                    <span class="links_name">Order</span>
+                </a>
+                <span class="tooltip">Order</span>
+            </li>
+            <li>
+                <a href="/api/showUserStocks/wishlist">
+                    <i class='bx bx-heart'></i>
+                    <span class="links_name">Wishlist</span>
+                </a>
+                <span class="tooltip">Wishlist</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-cog'></i>
+                    <span class="links_name">Setting</span>
+                </a>
+                <span class="tooltip">Setting</span>
+            </li>
+            <li class="profile">
+                <div class="profile-details">
+                    <img src="profile.jpg" alt="profileImg">
+                    <div class="name_job">
+                        <div class="name">Prem Shahi</div>
+                        <div class="job"></div>
+                    </div>
+                </div>
+                <i class='bx bx-log-out' id="log_out"></i>
+            </li>
+        </ul>
+    </div> --}}
+
+    <nav id="navBar">
+        <img id="navLogo" src="/images/logo2.png" alt="logo">
+        <h2>Trade Vantage</h2>
+        <div class="navBarList">
+            <a href="/api/showUserStocks/stockHome">Home</a>
+            <a href="/api/showUserStocks/showUserStocks">My Stocks</a>
+            <a href="/api/showUserStocks/stockSelect">Stocks</a>
+            <a href="/api/profileauth/transactionHistory">Transaction History</a>
+        </div>
+    </nav>
+
+
+    <div>
+        <h1 style="display: flex; justify-content:center; align-items:center;">All Stocks</h1>
+    </div>
+
+    <div class="container">
+        <ul class="responsive-table">
+            <li class="table-header">
+                <div class="col col-2"><b>Name</b></div>
+                <div class="col col-2"><b>Current Price</b></div>
+                <div class="col col-3"><b>Change</b></div>
+                <div class="col col-4"><b>52W High</b></div>
+                <div class="col col-5"><b>52W Low</b></div>
+            </li>
+
+            {{#each resultWithProfit}}
+            <a class="insideBtn"
+                href="/api/showUserStocks/productDescription?id={{this.symbol}}&identifier='{{this.identifier}}'&open={{this.open}}&dayHigh={{this.dayHigh}}&dayLow={{this.dayLow}}&lastPrice={{this.lastPrice}}&previousClose={{this.previousClose}}&change={{this.change}}&pChange={{this.pChange}}&totalTradedVolume={{this.totalTradedVolume}}&totalTradedValue={{this.totalTradedValue}}&lastUpdateTime={{this.lastUpdateTime}}&yearHigh={{this.yearHigh}}&yearLow={{this.yearLow}}&perChange365d={{this.perChange365d}}&perChange30d={{this.perChange30d}}">
+                <li class="table-row">
+                    <div class="col col-2" data-label="Customer Name" style="color:#342110">{{this.identifier}} </div>
+                    <div class="col col-2" data-label="Amount" style="color:#342110"> ₹{{this.lastPrice}}</div>
+                    {{#if flagProfit}}
+                    <div class="col col-3" data-label="Amount" style="color:Green;">
+                        {{this.change}}<br>({{this.pChange}}%)</div>
+                    {{else}}
+
+                    <div class="col col-3" data-label="Amount" style="color:red;">{{this.change}}<br>({{this.pChange}}%)
+                    </div>
+                    {{/if}}
+
+                    <div class="col col-4" data-label="Payment Status" style="color:#342110">₹{{this.yearHigh}}</div>
+                    <div class="col col-5" data-label="Payment Status" style="color:#342110">₹{{this.yearLow}}</div>
+                </li>
+                {{!-- <a id="autoBuyBtn" href="/api/sell/autoBuy?id={{this.identifier}}">Auto Buy</a> --}}
+            </a>
+            {{/each}}
+        </ul>
+    </div>
+
+
+
+
+
+    <!-- -- footer - (START)-- -->
+
+
+    <div id="footer" style="margin-top:100px;">
+        <div class="cover1">
+            <div class="container max-w" style="padding-top: 30px;">
+
+                <div class="footer-1" id="fot-section-1">
+
+                    <span style="margin:17px 0 17px -10px; cursor:pointer">
+                        <img src="/images/logo2.png" width="80" height="80" alt="Logo"
+                            itemprop="logo">&nbsp;&nbsp;&nbsp;
+                    </span>
+                    <h2 style="display: inline; ">Grab An Experiance in Stock Market</h2>
+
+                    <div class="copyRight"
+                        style="display:flex; align-items:center; justify-content:space-between;  padding-bottom: 10px;">
+                        <br><br>
+                        <div class="" style="display:flex; align-items:center;">ⓒ&nbsp;TradeVirtually. All rights
+                            reserved</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- -- footer - (END)-- -->
+
+
+    <script src="/scripts/productapp.js">
+    </script>
+
+    <script src="/scripts/search_box.js"></script>
+    <script src="/scripts/changeNavbar.js"></script>
+    <script>
+
+
+
+    </script>
+    <script src="/scripts/navbar2.js"></script>
+</body>
+
+</html>

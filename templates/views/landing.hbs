@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stocks</title>
+  <link rel="stylesheet" href="/landingcss/style.css">
+  <link rel="stylesheet" href="/landingcss/style.scss">
+  <link rel="stylesheet" href="/landingcss/bootstrap.min.css">
+  <link rel="stylesheet" href="/landingcss/hoverEffect.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=no">
+  <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script type="text/javascript">
+    $(window).on('scroll', function () {
+      if ($(window).scrollTop()) {
+        $('nav').addClass('black');
+      } else {
+        $('nav').removeClass('black');
+      }
+    })
+    /*menu button onclick function*/
+    $(document).ready(function () {
+      $('.menu h4').click(function () {
+        $("nav ul").toggleClass("active")
+      })
+    })
+  </script>
+</head>
+
+<body id="IndexBody">
+  <div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+  </div>
+  <div class="Dbms_Top">
+    <div class="Dbms_logo">
+      <img src="/images/stock.jpg">
+    </div>
+    <div class="nav_menu" id="nav_menu">
+      <button class="close_btn" id="close_btn">
+        <i class="ri-close-fill"></i>
+      </button>
+      <ul class="nav_menu_list">
+        <li class="nav_menu_item">
+          <a href="#" class="nav_menu_link">Home</a>
+        </li>
+        <li class="nav_menu_item">
+          <a href="#ct-js-wrapper" class="nav_menu_link">about us</a>
+        </li>
+        <li class="nav_menu_item">
+          <a href="#contact" class="nav_menu_link">contact</a>
+        </li>
+        <li class="nav_menu_item">
+          <a href="/api/loginauth/login" class="nav_menu_link">Login/Register</a>
+        </li>
+        <li class="nav_menu_item">
+          <a href="/api/loginauth/deleteAccountForm" class="nav_menu_link">Delete Account</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="middle_part">
+    <div class="Grow_Middle_Left">
+      <h2 class="InvestIn">
+        Virtual Stocks
+        <div class="Slidder_vertical">
+          <span class="Stocks_Color">Trading</span>
+        </div>
+      </h2>
+      <br><br>
+
+      <div class="Grow_Middle_Left_Text">
+        Trusted by <span style="font-weight:bold">Millions</span> of Indians. Start investing today.
+      </div>
+      <br><br><br><br><br><br><br>
+      <div class="Dbms_Started_Container">
+        <button class="Goww_StartedButton" onclick="window.location.href='login.html'">Get Started</button>
+      </div>
+
+    </div>
+
+    <div class="Grow_Middle_Right">
+
+      <div class="Grow_middle_col2">
+        <a class="Stocks" href="#">
+          <img src="/images/Stocks.svg" width="100px" height="100px">
+          <h3>Stocks</h3>
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  </div>
+  <br><br><br><br><br>
+  <div class="DbmsProduct">
+    <h2 class="yourMoneyYourChoice_Text"><span style="font-weight:bold">Your Money Your Choice</span></h2>
+
+
+
+    <br><br><br><br><br>
+
+    <span class="NavbarUnderlineActive"></span>
+
+  </div>
+
+  <div class="DbmsProduct_Display">
+
+    <div class="DbmsProduct_StocksDetails_Display">
+      <div class="DbmsProduct_StocksDetails_Display_LeftPart">
+        <img src="/images/stocks1.jpg" width="562px" height="355px" class="ChangeImageAccordingNavigation">
+      </div>
+      <div class="DbmsProduct_StocksDetails_Display_RightPart">
+        <h2><span class="ZeroText">Zero</span> <span class="InsideContent">account charges</span></h2>
+        <div class="stocksDetails_Text">
+          You don't have to pay a single rupee. You will get virtual money one you logged in.
+        </div>
+        <div class="DbmsProduct_Button_CreateAccountFree">
+          <button onclick="window.location.href='login.html'">Create Account Free</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="DbmsLearningSection">
+    <h2 class="DbmsLearning_Heading">Keep learning Keep growing</h2>
+
+    <div class="DbmsLearning_Container">
+      <a href="" class="howToSelect">
+        <div class="DbmsLeaning_Image">
+          <img src="/images/howToSelect.png">
+        </div>
+        <div class="DbmsLearning_Details">
+          <button onclick="watchVideo()">How to Select/Pick Stocks for
+            Intraday</button>
+        </div>
+
+      </a>
+      <a href="" class="beginnersGuide">
+        <div class="DbmsLeaning_Image">
+          <img src="/images/beginning.png">
+        </div>
+        <div class="DbmsLearning_Details">
+          <button onclick="watchVideo()">
+            For Beginners Guide to virtual Trading
+          </button>
+        </div>
+      </a>
+      <a href="" class="howToDiversify">
+        <div class="DbmsLeaning_Image">
+          <img src="/images/Diversify.png">
+        </div>
+        <div class="DbmsLearning_Details">
+          <button onclick="watchVideo()">
+            How to Diversify in the Time of
+            Market Volatility
+          </button>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="SupportSection">
+    <div class="SupportContainer">
+      <div class="SupportSection_left">
+        <h2>We’re with you, at every step.</h2>
+        <p>For any query you have, find the answer
+          quickly on our Help & Support. Need a
+          little more help? We’re happy to talk via call or chat.
+        </p>
+        <button class="SupportSection_get" onclick="window.location.href='login.html'">Get In Touch</button>
+      </div>
+      <div class="SupportSection_Right">
+        <img src="/images/support.jpg" width="261px" height="327px">
+      </div>
+    </div>
+  </div>
+  <div class="ct-pageWrapper" id="ct-js-wrapper">
+    <section class="company-heading intro-type" id="parallax-one">
+      <div class="container">
+        <div class="row product-title-info">
+          <div class="col-md-12">
+            <h1>About us</h1>
+          </div>
+        </div>
+      </div>
+      <div class="parallax" id="parallax-cta"
+        style="background-image:url(https://www.solodev.com/assets/hero/hero.jpg);"></div>
+    </section>
+  </div>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+  <div class="wrapper1">
+    <h1>Our Team</h1>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="our_team">
+    <div class="team_member">
+      <div class="member_img">
+        <!-- <img src="https://static.fotor.com/app/features/img/aiface/advance/2.png" alt="our_team"> -->
+        <img src="https://static.fotor.com/app/features/img/aiface/advance/2.png" alt="our_team">
+
+        <div class="social_media">
+          <div class="facebook item"><i class="fab fa-facebook-f"></i></div>
+          <div class="twitter item"><i class="fab fa-twitter"></i></div>
+          <div class="instagram item"><i class="fab fa-instagram"></i></div>
+        </div>
+      </div>
+      <div class="text-center">
+        <h3>Avadhut</h3>
+        <!-- <span>CEO</span> -->
+        <p>IIT2021199</p>
+      </div>
+      <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione perspiciatis, error deleniti quaerat beatae doloribus incidunt excepturi. Fugit deleniti accusantium neque hic quidem voluptatibus cumque.</p> -->
+    </div>
+    <div class="team_member">
+      <div class="member_img">
+        <img src="https://static.fotor.com/app/features/img/aiface/advance/2.png" alt="our_team">
+        <div class="social_media">
+          <div class="facebook item"><i class="fab fa-facebook-f"></i></div>
+          <div class="twitter item"><i class="fab fa-twitter"></i></div>
+          <div class="instagram item"><i class="fab fa-instagram"></i></div>
+        </div>
+      </div>
+      <div class="text-center">
+        <h3>Aman</h3>
+        <!-- <span>Accountant</span> -->
+        <p>IIT2021201</p>
+      </div>
+      <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione perspiciatis, error deleniti quaerat beatae doloribus incidunt excepturi. Fugit deleniti accusantium neque hic quidem voluptatibus cumque.</p> -->
+    </div>
+    <div class="team_member">
+      <div class="member_img">
+        <img src="https://static.fotor.com/app/features/img/aiface/advance/2.png" alt="our_team">
+        <div class="social_media">
+          <div class="facebook item"><i class="fab fa-facebook-f"></i></div>
+          <div class="twitter item"><i class="fab fa-twitter"></i></div>
+          <div class="instagram item"><i class="fab fa-instagram"></i></div>
+        </div>
+      </div>
+      <div class="text-center">
+        <h3>Ujjwal</h3>
+        <p>IIT2021212</p>
+      </div>
+      <!-- <span>Product Manager</span> -->
+      <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione perspiciatis, error deleniti quaerat beatae doloribus incidunt excepturi. Fugit deleniti accusantium neque hic quidem voluptatibus cumque.</p> -->
+    </div>
+    <div class="team_member">
+      <div class="member_img">
+        <img src="https://static.fotor.com/app/features/img/aiface/advance/2.png" alt="our_team">
+        <div class="social_media">
+          <div class="facebook item"><i class="fab fa-facebook-f"></i></div>
+          <div class="twitter item"><i class="fab fa-twitter"></i></div>
+          <div class="instagram item"><i class="fab fa-instagram"></i></div>
+        </div>
+      </div>
+      <div class="text-center">
+        <h3>Yasir</h3>
+        <p>IIT2021129</p>
+      </div>
+      <!-- <span>product analyst</span> -->
+      <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione perspiciatis, error deleniti quaerat beatae doloribus incidunt excepturi. Fugit deleniti accusantium neque hic quidem voluptatibus cumque.</p> -->
+    </div>
+    <br>
+    <br>
+    <div class="team_member">
+      <div class="member_img">
+        <img src="https://static.fotor.com/app/features/img/aiface/advance/2.png" alt="our_team">
+        <div class="social_media">
+          <div class="facebook item"><i class="fab fa-facebook-f"></i></div>
+          <div class="twitter item"><i class="fab fa-twitter"></i></div>
+          <div class="instagram item"><i class="fab fa-instagram"></i></div>
+        </div>
+      </div>
+      <div class="text-center">
+        <h3>Parwez</h3>
+        <p>IIT2021113</p>
+      </div>
+      <!-- <span>product analyst</span> -->
+      <!-- <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione perspiciatis, error deleniti quaerat beatae doloribus incidunt excepturi. Fugit deleniti accusantium neque hic quidem voluptatibus cumque.</p> -->
+    </div>
+  </div>
+  </div>
+
+  <div class="content">
+    <div class="wrapper1">
+      <h1>Contact</h1>
+    </div>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div id="contact" class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+
+
+        <div class="row justify-content-center">
+          <div class="col-md-6">
+
+            <h3 class="heading mb-4">Let's talk about everything!</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas debitis, fugit natus?</p>
+
+            <p><img src="/images/contact.svg" width="400" height="400" alt="Image" class="img-fluid"></p>
+
+
+          </div>
+          <div class="col-md-6">
+
+            <form class="mb-5" method="post" id="contactForm" name="contactForm">
+              <div class="row">
+                <div class="col-md-12 form-group">
+                  <input type="text" class="form-control" name="name" id="name" placeholder="Your name">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 form-group">
+                  <input type="text" class="form-control" name="email" id="email" placeholder="Email">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 form-group">
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 form-group">
+                  <textarea class="form-control" name="message" id="message" cols="30" rows="7"
+                    placeholder="Write your message"></textarea>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-12">
+                  <input type="submit" value="Send Message" class="btn btn-primary rounded-0 py-2 px-4">
+                  <span class="submitting"></span>
+                </div>
+              </div>
+            </form>
+
+            <div id="form-message-warning mt-4"></div>
+            <div id="form-message-success">
+              Your message was sent, thank you!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+  <script>
+    function watchVideo() {
+      window.open('https://www.youtube.com/watch?v=_ucD8sc30xY', '_blank');
+    }
+  </script>
+  <script src="Javascript.js"></script>
+  <script src="./LoginAndRegister/loginAndRegister.js"></script>
+</body>
+
+</html>

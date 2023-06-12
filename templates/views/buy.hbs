@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Buy Stocks</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 30px;
+      color: #333;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px;
+    }
+
+    label {
+      margin: 5px;
+    }
+
+    input[type="number"],
+    input[type="password"],
+    input[type="text"] {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0px 0px 5px #ccc;
+      width: 300px;
+      margin: 10px;
+    }
+
+    button[type="submit"] {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #e9780d;
+      color: #fff;
+      font-weight: bold;
+      margin-top: 10px;
+      box-shadow: 0px 0px 5px #ccc;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #f0881f;
+    }
+
+    input[type="hidden"] {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>{{stockName}} Stock Transaction</h1>
+  {{#if errorMessage}}
+  <p id="message" style="color: orange; font-weight: 800; text-align:center;">{{errorMessage}}</p>
+  {{/if}}
+  {{#if message}}
+  <p id="message" style="color: rgb(38, 255, 0); font-weight: 800; text-align:center;">{{message}}</p>
+  {{/if}}
+  <form action="/api/showUserStocks/post" method="post">
+    <label for="units">Units:</label>
+    <input type="number" id="units" name="units" required><br>
+
+    <label for="userId">userId:</label>
+    <input type="text" id="userId" name="userId" required><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br>
+
+    <input id="submitBtn" type="submit" value="Confirm Buy">
+
+    <input type="hidden" id="name" name="name" value="{{result.[0].name}}">
+    <input type="hidden" id="id" name="id" value="{{result.[0].Id}}">
+    <input type="number" id="price" name="price" value="{{result.[0].price}}">
+   
+   
+  </form>
+  <script>
+   
+
+    var message = document.getElementById('message');
+    setTimeout(() => {
+      message.innerHTML = "";
+    }, 3000)
+
+  </script>
+</body>
+
+</html>

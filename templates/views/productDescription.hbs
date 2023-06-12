@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    {{!--
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> --}}
+    {{!--
+    <link rel="icon" href="https://groww.in/logo-groww270.png" type="image/x-icon"> --}}
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/product_description.css">
+    <link rel="stylesheet" href="/css/search_box.css">
+    <style>
+        .optBtns {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10%;
+            width: 98%;
+        }
+
+        .cont {
+            margin-bottom: 20px;
+            height: 50px;
+            width: 100%;
+        }
+
+        label {
+            float: left;
+            margin-left: 10px;
+        }
+
+        input {
+            float: left;
+            border-radius: 10px;
+            height: 25px;
+            width: 95%;
+            margin: 7px;
+            border: white;
+
+        }
+
+        .con {
+            background-color: rgb(153, 181, 181);
+        }
+
+        #flash {
+            z-index: 1;
+            margin-bottom: 40px;
+            text-transform: capitalize;
+            color: rgb(215, 109, 201);
+            text-align: center;
+        }
+
+        #chart-container {
+            width: 68%;
+            margin: 1px 25px auto;
+            background-color: #fff;
+            padding: 3px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e0e0e0;
+        }
+
+
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        #chart {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #heading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #formContainer {
+            display: inline-block;
+        }
+
+        #conatiner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        #detailsDiv {
+            margin: 0 auto;
+            /* center the div horizontally */
+            width: 50%;
+            /* adjust the width as needed */
+            background-color: white;
+            /* set background color to white */
+            padding: 20px;
+            /* add padding to the div */
+        }
+
+        #detailsDiv p {
+            color: #00d09c;
+            /* set the text color to #00d09c */
+            font-size: 16px;
+            /* set the font size */
+            margin-bottom: 10px;
+            /* add some space between paragraphs */
+        }
+
+        #formHeading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-bottom: 5%;
+        }
+
+        #buyStockHeadingDiv {
+            margin-top: 0px;
+            background-color: #00d09c;
+        }
+
+        #navBar {
+            background-color: #73ceb7;
+            overflow: hidden;
+        }
+
+        #navBar a {
+            padding: 7px 8px;
+            text-decoration: none;
+            color: white;
+            font-weight: 700;
+        }
+
+        #navBar a:hover {
+            background-color: #ddd;
+            color: black;
+            border-radius: 10px;
+
+        }
+
+        #navLogo {
+            width: 50px;
+            height: 50px;
+            margin-top: 5px;
+            margin-left: 7%;
+        }
+
+        #navBar {
+            display: flex;
+
+        }
+
+        .navBarList {
+            margin-left: 35%;
+            margin-top: 15px;
+        }
+
+        table {
+            margin: 2px 20%;
+            width: 60%;
+            border-collapse: collapse;
+            border: solid black 1px;
+        }
+
+        th {
+            padding: 8px;
+            text-align: center;
+            border-bottom: 1px solid #00d09c;
+            background-color: #00d09c;
+        }
+
+        td {
+            padding: 8px;
+            padding-left: 20%;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        #navBar h2 {
+            color: rgb(250, 249, 249);
+            border-radius: 10px;
+            margin: 10px;
+            margin-left: 5%;
+        }
+        #autoBuyBtn {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin:0px 30%;
+            margin-top: 2%;
+            text-decoration: none;
+            background-color: #73ceb7;
+            cursor: pointer;
+            width:40%;
+            color: #fff;
+            font-size: 16px;
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-weight: 900;
+        }
+        #autoBuyBtn:hover {
+           background-color: #2f947a;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav id="navBar">
+        <img id="navLogo" src="/images/logo2.png" alt="logo">
+        <h2>Trade Vantage</h2>
+        <div class="navBarList">
+            <a href="/api/showUserStocks/stockHome">Home</a>
+            <a href="/api/showUserStocks/showUserStocks">My Stocks</a>
+            <a href="/api/showUserStocks/stockSelect">Stocks</a>
+            <a href="/api/profileauth/transactionHistory">Transaction History</a>
+        </div>
+    </nav>
+
+
+    <h3 id="flash"> {{message}}</h1>
+
+        <div id="dropDown" class="noDropDownDisplay"></div>
+        <h2 style="text-align: center; color:#00d09c">{{autoBuyIdentfier}}</h2>
+
+
+        <div id="container">
+
+            <div id="chart-container">
+                <canvas id="chart"></canvas>
+            </div>
+
+            <div id="rightContainer">
+                <div id="paymentOpt">
+                    <div id="buyStockHeadingDiv">
+                        <h2 id="formHeading">Buy Stock Here!!</h2>
+                    </div>
+                    <form id="hello-form" action="/api/showUserStocks/post" method="post">
+                        <div class="cont">
+                            <label for="units">Units:</label><br>
+                            <input class="con" type="number" id="units" name="units" required><br>
+                        </div>
+                        <div class="cont">
+                            <label for="userId">userId:</label><br>
+                            <input class="con" type="text" id="userId" name="userId" required><br>
+                        </div>
+                        <div class="cont">
+                            <label for="password">Password:</label><br>
+                            <input class="con" type="password" id="password" name="password" required><br>
+                        </div>
+
+                        <div class="cont">
+                            <input onclick="func1()" id="addToCartBtn" type="submit" value="Buy">
+                            <input onclick="func2()" id="addToCartBtn" type="submit" value="Add to Portfolio Wishlist">
+                        </div>
+                        <input type="hidden" id="name" name="name" value="{{quote.identifier}}">
+                        <input type="hidden" id="id" name="id" value="{{quote.id}}">
+                        <input type="hidden" id="price" name="open" value="{{quote.open}}">
+                        <input type="hidden" name="dayHigh" value="{{quote.dayHigh}}">
+                        <input type="hidden" name="dayLow" value="{{quote.dayLow}}">
+                        <input type="hidden" name="lastPrice" value="{{quote.lastPrice}}">
+                        <input type="hidden" name="previousClose" value="{{quote.previousClose}}">
+                        <input type="hidden" name="change" value="{{quote.change}}">
+                        <input type="hidden" name="pChange" value="{{quote.pChange}}">
+                        <input type="hidden" name="totalTradedVolume" value="{{quote.totalTradedVolume}}">
+                        <input type="hidden" name="totalTradedValue" value="{{quote.totalTradedValue}}">
+                        <input type="hidden" name="lastUpdateTime" value="{{quote.lastUpdateTime}}">
+                        <input type="hidden" name="yearHigh" value="{{quote.yearHigh}}">
+                        <input type="hidden" name="yearLow" value="{{quote.yearLow}}">
+                        <input type="hidden" name="perChange365d" value="{{quote.perChange365d}}">
+                        <input type="hidden" name="perChange30d" value="{{quote.perChange30d}}">
+
+
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <div>
+            <h1 style="display: flex; justify-content:center; align-items:center;">Details</h1>
+        </div>
+        <table>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>Open</td>
+                <td>₹{{quote.open}}</td>
+            </tr>
+            <tr>
+                <td>Day's High</td>
+                <td>₹{{quote.dayHigh}}</td>
+            </tr>
+            <tr>
+                <td>Day's Low</td>
+                <td>₹{{quote.dayLow}}</td>
+            </tr>
+            <tr>
+                <td>Last Price</td>
+                <td>₹{{quote.lastPrice}}</td>
+            </tr>
+            <tr>
+                <td>Previous Close</td>
+                <td>₹{{quote.previousClose}}</td>
+            </tr>
+            <tr>
+                <td>Change</td>
+                <td>₹{{quote.change}}</td>
+            </tr>
+            <tr>
+                <td>% Change</td>
+                <td>{{quote.pChange}}</td>
+            </tr>
+            <tr>
+                <td>Total Traded Value</td>
+                <td>{{quote.totalTradedValue}}</td>
+            </tr>
+            <tr>
+                <td>Last Update Time</td>
+                <td>{{quote.lastUpdateTime}}</td>
+            </tr>
+            <tr>
+                <td>Year High</td>
+                <td>₹{{quote.yearHigh}}</td>
+            </tr>
+            <tr>
+                <td>Year Low</td>
+                <td>₹{{quote.yearLow}}</td>
+            </tr>
+            <tr>
+                <td>% Change (365 days)</td>
+                <td>{{quote.perChange365d}}</td>
+            </tr>
+            <tr>
+                <td>% Change (30 days)</td>
+                <td>{{quote.perChange30d}}</td>
+            </tr>
+        </table>
+        <a id="autoBuyBtn" href="/api/sell/autoBuy?id={{autoBuyIdentfier}}">Set Auto Buy</a>
+
+        <!-- -- footer - (START)-- -->
+        <div id="footer" style="margin-top:100px;">
+
+            <div class="cover1">
+                <div class="container max-w" style="padding-top: 30px;">
+
+                    <div class="footer-1" id="fot-section-1">
+                        <ul>
+                            <li style="margin:17px 0 17px -10px; cursor:pointer"><img src="/images/logo2.png" width="80"
+                                    height="80" alt="Logo" itemprop="logo"> </li>
+
+                        </ul>
+                        <div class="copyRight"
+                            style="display:flex; align-items:center; justify-content:space-between;  padding-bottom: 10px;">
+                            <div class="" style="display:flex; align-items:center;">ⓒ&nbsp;TradeVirtually. All rights
+                                reserved</div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+                {{!-- <section class="max-w">
+                    <!-- -- underline-- -->
+
+                    <div class="footerLine"></div>
+
+                    <!-- -- copyright-section -- -->
+
+                    <div class="copyRight"
+                        style="display:flex; align-items:center; justify-content:space-between;  padding-bottom: 10px;">
+                        <div class="" style="display:flex; align-items:center;">ⓒ&nbsp;TradeVirtually. All rights
+                            reserved</div>
+                    </div>
+                </section> --}}
+
+            </div>
+
+        </div>
+        <!-- -- footer - (END)-- -->
+
+        <script>
+            function func1() {
+                document.getElementById('hello-form').action = '/api/showUserStocks/post';
+
+            }
+            function func2() {
+                document.getElementById('hello-form').action = '/api/showUserStocks/addToWishlist';
+
+            }
+        </script>
+        <script type="module">
+
+            import { showDescription, addToCart, goToCart, showMonthlySip, showOneTime, calendar } from "./scripts/product_desc_scripts.js";
+            import { getData, appendingData, graph } from "./scripts/graph.js";
+            getData();
+
+            let addToCartBtn = document.getElementById("addToCartBtn");
+            let goToCartBtn = document.getElementById("goToCartBtn");
+            let calendarSel = document.getElementById("sipCalInput");
+
+            addToCartBtn.onclick = function () {
+                addToCart();
+            }
+            goToCartBtn.onclick = function () {
+                goToCart();
+            }
+            monthlySip.onclick = function () {
+                showMonthlySip();
+            }
+            oneTime.onclick = function () {
+                showOneTime();
+            }
+            calendarSel.onchange = function () {
+                calendar();
+            }
+
+        </script>
+        <script>
+
+            let flg = 1;
+            if (flg) {
+                let id = document.getElementById('flash');
+                setTimeout(function () {
+                    // Find the alert element and hide it
+                    var alertElement = document.getElementById("flash");
+                    alertElement.style.display = "none";
+                    flg = 0;
+                }, 3000);
+            }
+            ////
+            ///////graph dat js
+
+
+            var ctx = document.getElementById('chart').getContext('2d');
+            var mychart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: {{{ dates }}},
+            datasets: [{
+                label: 'Price in ₹',
+                data: {{ prices }},
+                borderWidth: 1,
+                borderColor: '#00d09c',
+                backgroundColor: 'rgb(0,208,156,0.2)',
+                pointBackgroundColor: '#00d09c',
+                pointBorderColor: '#fff',
+                pointHoverBackgroundColor: '#fff',
+                pointHoverBorderColor: '#00d09c',
+                fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                    scales: {
+                    xAxes: [{
+                        ticks: {
+                            autoSkip: false,
+                            maxRotation: 90,
+                            minRotation: 90
+                        }
+                    }],
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                },
+                legend: {
+                    display: true,
+                        position: 'top',
+                            labels: {
+                        fontColor: '#333',
+                            fontSize: 14
+                    }
+                },
+                title: {
+                    display: true,
+                        text: 'Stock Price Chart',
+                            fontColor: '#333',
+                                fontSize: 18
+                }
+            }
+        });
+
+            ////
+        </script>
+        <script src="/scripts/search_box.js"></script>
+        <script src="/scripts/changeNavbar.js"></script>
+        <script type="module">
+
+            import { showDescription, addToCart, goToCart, showMonthlySip, showOneTime, calendar } from "./scripts/product_desc_scripts.js";
+            import { getData, appendingData, graph } from "/scripts/graph.js";
+            getData();
+
+            let addToCartBtn = document.getElementById("addToCartBtn");
+            let goToCartBtn = document.getElementById("goToCartBtn");
+            let calendarSel = document.getElementById("sipCalInput");
+
+            addToCartBtn.onclick = function () {
+                addToCart();
+            }
+            goToCartBtn.onclick = function () {
+                goToCart();
+            }
+            monthlySip.onclick = function () {
+                showMonthlySip();
+            }
+            oneTime.onclick = function () {
+                showOneTime();
+            }
+            calendarSel.onchange = function () {
+                calendar();
+            }
+
+
+
+
+
+        </script>
+
+
+</body>
+
+</html>
